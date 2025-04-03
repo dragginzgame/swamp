@@ -1,0 +1,22 @@
+.canbench/
+.dfx/
+deps/
+.env
+target/
+tests/pocket-ic
+tests/logs
+
+# Various IDEs and Editors
+.vscode/
+.idea/
+**/*~
+
+# Mac OSX temporary files
+.DS_Store
+**/.DS_Store
+
+# frontend code
+node_modules/
+dist/
+.svelte-kit/
+

@@ -1,0 +1,13 @@
+{
+	"canisters": {
+		"graph": {
+			"source": ["build"],
+			"type": "assets",
+			"frontend": {
+				"entrypoint": "build/index.html"
+			}
+		}
+	},
+	"output_env_file": ".env",
+	"version": 1
+}
