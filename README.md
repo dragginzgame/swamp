@@ -3,7 +3,7 @@
 
 
 ```inside backend folder
-cargo run backend
+cargo run graph_data
 ```
 
 
