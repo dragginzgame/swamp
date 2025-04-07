@@ -9024,7 +9024,7 @@
     "oldest_tx_id": 10635528
   },
   {
-    "name": "SNS: Alice 10k, WTN 20k",
+    "name": "SNS: Alice 10k, WTN 20k (DF)",
     "principal": "cld52-vm6st-5ulwe-yperp-iwvft-gqt7a-jrbpm-pkdcl-yszk3-zyxvb-wae",
     "account": "b6667dd90a9201bf5d2dfafaee8c4e650b5cdfca9e1d3527fcff71d97ccb2bcb",
     "ty": "SnsParticipant",
@@ -34346,7 +34346,7 @@
     "oldest_tx_id": 11719930
   },
   {
-    "name": "WaterNeuron SNS 117k",
+    "name": "WaterNeuron SNS 117k (Gian)",
     "principal": "ll6pj-3wsrz-glcqo-bhjl7-s7wsj-eaykn-sllr5-4klcj-wxgbe-jm2ei-zqe",
     "account": "450c17380851adc1cf9a6eb6e6ab1a332cca20c2fc2d89362f5621a913b2722c",
     "ty": "SnsParticipant",
@@ -38786,7 +38786,7 @@
     "oldest_tx_id": 12665904
   },
   {
-    "name": "WTN 2nd Sale",
+    "name": "WaterNeuron 2nd Sale Deposit",
     "principal": null,
     "account": "2d34555b52104a49a20d2cc1db53799bc54ece4946c5248e9b3b01e40cec9082",
     "ty": "SnsParticipant",
@@ -44340,7 +44340,7 @@
     "oldest_tx_id": 17103043
   },
   {
-    "name": "WTN 2nd Sale 175k",
+    "name": "WaterNeuron 2nd Sale 175k (David Fisher)",
     "principal": null,
     "account": "327d6ac848535b169dd7809d11aa76a42e223d0a2e3218de7cb38ac5a7bf6123",
     "ty": "SnsParticipant",
