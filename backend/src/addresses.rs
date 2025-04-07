@@ -573,16 +573,15 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     //
     ("Approver 1", "6202e0cfffbbb22acd373aba740d2c10d84a1c6b044b97fe4f649c9c7a2426b6"),
     ("Burner", "78384208af4e63ff27ec3ea532b1d7ccbadcbad859943267d3296aef2361b6b7"),
+    //
+    // DF
+    //
     ("DF 276k Dep 1", "709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"),
     ("DF 105k Wd 1.1", "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"),
     ("DF 276k Dep 2", "6dbbb77d998fc9d8460603ee5496fd4c05eb11d9d89f2cf434c43bc2984c5001"),
     ("DF 129k Wd 2.1", "056941e12ba0e21c7aa1c7048652a5337dbf93860864c0eea049614a09de2fed"),
-    ("DF 110k Wd 2.2", "3decd559162a51e9e9699a46373fffb17c2cf5bbf47b408206ca16571e3f58a6"),
-    //
-    // Seed
-    //
-    //
-
+    ("DF 136k Wd 2.2", "3decd559162a51e9e9699a46373fffb17c2cf5bbf47b408206ca16571e3f58a6"),
+    ("DF?? 35k Dep 3", "e109d335b176e52e85a5b31e026d48f9c3d17d9693c011e633804678e5f8a062"),
     //
     // Scams
     //
