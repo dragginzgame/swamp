@@ -390,7 +390,7 @@ pub const SNS_PARTICIPANTS: &[(&str, &str)] = &[
     ("WaterNeuron SNS 3k", "ml6n5-esoaq-crnni-5vg4t-xolbb-clnn2-cfaud-f5i4c-rajya-fzeaz-yqe"),
     ("WaterNeuron SNS 3k", "k4ra3-t2hvw-g3ww3-zdtx6-pqmj3-tveyx-ajjdl-5dqsv-zygbq-zhab6-6ae"),
     // WaterNeuron 2nd sale
-    ("WaterNeuron 2nd Sale", "2d34555b52104a49a20d2cc1db53799bc54ece4946c5248e9b3b01e40cec9082"),
+    ("WaterNeuron 2nd Sale Deposit", "2d34555b52104a49a20d2cc1db53799bc54ece4946c5248e9b3b01e40cec9082"),
     ("WaterNeuron 2nd Sale 175k (David Fisher)", "327d6ac848535b169dd7809d11aa76a42e223d0a2e3218de7cb38ac5a7bf6123"),
     // Yuku AI
     ("Yuku SNS 30k", "pcuxr-ctpat-c7m2c-seh76-6bcez-nc5r3-rwbhf-seyrq-ntxnf-iqerm-lae"),
@@ -573,10 +573,13 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     //
     ("Approver 1", "6202e0cfffbbb22acd373aba740d2c10d84a1c6b044b97fe4f649c9c7a2426b6"),
     ("Burner", "78384208af4e63ff27ec3ea532b1d7ccbadcbad859943267d3296aef2361b6b7"),
+    ("DF Deposit Before 3x105ks", "709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"),
+    ("DF 105k II", "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"),
+    ("DF 105k III", "b6667dd90a9201bf5d2dfafaee8c4e650b5cdfca9e1d3527fcff71d97ccb2bcb"),
     //
     // Seed
     //
-    //("Seed", ""),
+    //
 
     //
     // Scams
