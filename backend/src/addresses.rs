@@ -46,6 +46,7 @@ pub const CEXES: &[(&str, &[&str])] = &[
             "d2c6135510eaf107bdc2128ef5962c7db2ae840efdf95b9395cdaf4983942978",
         ],
     ),
+    ("Unknown Exchange", &["5c21e9ec78aec661aba9722f80c09b50d1e2332aa80bfdb768eec3602f79d61b"]),
 ];
 
 pub const FOUNDATION: &[(&str, &[&str])] = &[
@@ -580,6 +581,7 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     ("Burner", "78384208af4e63ff27ec3ea532b1d7ccbadcbad859943267d3296aef2361b6b7"),
     ("625k / month", "280a38d3c6e7d5bc98921632bb2b24ed946acb535770344e2888faf0d96a902e"),
     ("Maybe Artia", "cd328886ccadc1b5d7dd517d1b00ebde83bb073d39cc303994356c3b9702d048"),
+    ("Utkarsh Link to DF", "334f020a17d5d5ff2bb512888ca26997683ae492d51a0efff147115d83c57ed0"),
     //
     // DF
     //
