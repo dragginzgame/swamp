@@ -58,9 +58,8 @@ pub const FOUNDATION: &[(&str, &[&str])] = &[
             "860c10fd2e96106edccb48e657b265517fda354a4588a52a13384dd58ffcaab2",
         ],
     ),
-    ("Genesis ~2m", &["581ebcfa72dbed72cb0d18240d30879ac915df69dba3d1a8cfbb5508bb973df1"]),
     (
-        "Genesis 1.2-1.5m",
+        "Genesis <= 2m",
         &[
             "1a481b7aa86fa89029117f0487479f52fe3ee27ad63d48bac78fa60b3ebf9237",
             "12b7c1c6269b2021758ed5da65448a4ac3ac9fa0cf015caa4bb4c3e3dc7ca1c1",

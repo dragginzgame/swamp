@@ -2,7 +2,7 @@ use std::collections::{HashMap, HashSet};
 
 use crate::{
     helper::{is_valid_account_id, principal_to_account_id},
-    AccountData, Type,
+    AccountData,
 };
 use candid::{CandidType, Decode, Encode};
 use ic_agent::{export::Principal, Agent};

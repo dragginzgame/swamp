@@ -180,6 +180,8 @@ fn get_entries() -> Vec<AccountData> {
     entries.extend(CEXES.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Cex)));
     entries.extend(FOUNDATION.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Foundation)));
 
+    validate_entries(&entries);
+
     entries
 }
 
