@@ -95,7 +95,8 @@ pub const IDENTIFIED: &[(&str, &str)] = &[
     ("David Fisher", "ee5a229b0584939b880ffd446f2f8ae25252706d78298f20efe4a74665206554"),
     ("David the Gnome", "aiuxi-qgbbo-2bls4-7ac4x-suec5-bo6mm-zq6yh-asr25-iug6d-s7csv-jae"),
     ("Gavin H", "7cfaeaa0e14ce862636f052ff307511032e030a3028ead7614f7fc0905c1de41"),
-    ("Gian Bity", "aeefae5ddac8f4d8867682749b2d463261a6c36931986372e619dae748be3948"),
+    ("Gian", "aeefae5ddac8f4d8867682749b2d463261a6c36931986372e619dae748be3948"),
+    ("Gian Bity", "9c280844cb592d9c47407be0bc58e3408f7860ad8b481f88b8933099987fe8c7"),
     ("Johannes Kriel", "2rjjb-gy24i-ghulj-zfsn6-cf6ju-6rrkc-osdlt-uxuhc-ibhmb-wvh2v-yae"),
     ("jrnhz", "jrnhz-6ekxv-2fffs-wfcgt-l3pe7-456id-heznf-xyf64-nykjq-4jyso-zae"),
     ("Paul Kohlhaas", "fhab4-gziwu-ywv6p-4q4uj-zhhbm-ghspz-dkwsd-fiqy"),
@@ -380,7 +381,7 @@ pub const SNS_PARTICIPANTS: &[(&str, &str)] = &[
     ("NFIDW SNS 5k", "ojna7-4o6fi-f4pzd-zu5m2-m5na4-miajz-kz65q-ecmmh-34j43-cfuun-gqe"),
     ("NFIDW SNS 2k", "v6zy5-xc6h3-oduqq-rfib4-cc4n2-vyeip-4fthl-7qjir-oke3k-ftpvv-3qe"),
     // WaterNeuron
-    ("WaterNeuron SNS 117k", "ll6pj-3wsrz-glcqo-bhjl7-s7wsj-eaykn-sllr5-4klcj-wxgbe-jm2ei-zqe"),
+    ("WaterNeuron SNS 117k (Gian)", "ll6pj-3wsrz-glcqo-bhjl7-s7wsj-eaykn-sllr5-4klcj-wxgbe-jm2ei-zqe"),
     ("WaterNeuron SNS 50k", "zvcax-7pun5-oy64t-aynez-yo2jp-ftieg-otq24-ohoxk-6nlth-64fxt-tae"),
     ("WaterNeuron SNS 34k", "ifdcz-ditqo-tojui-ncj6w-tukjj-4ujn5-j5ibk-ksch7-abkr5-pd22f-fae"),
     ("WaterNeuron SNS 6k", "k57i6-rqxsp-3w5kd-oictq-iokt4-uqzvz-yophv-rkfkk-bnqcd-v34ie-yae"),
@@ -389,8 +390,8 @@ pub const SNS_PARTICIPANTS: &[(&str, &str)] = &[
     ("WaterNeuron SNS 3k", "ml6n5-esoaq-crnni-5vg4t-xolbb-clnn2-cfaud-f5i4c-rajya-fzeaz-yqe"),
     ("WaterNeuron SNS 3k", "k4ra3-t2hvw-g3ww3-zdtx6-pqmj3-tveyx-ajjdl-5dqsv-zygbq-zhab6-6ae"),
     // WaterNeuron 2nd sale
-    ("WTN 2nd Sale", "2d34555b52104a49a20d2cc1db53799bc54ece4946c5248e9b3b01e40cec9082"),
-    ("WTN 2nd Sale 175k", "327d6ac848535b169dd7809d11aa76a42e223d0a2e3218de7cb38ac5a7bf6123"),
+    ("WaterNeuron 2nd Sale", "2d34555b52104a49a20d2cc1db53799bc54ece4946c5248e9b3b01e40cec9082"),
+    ("WaterNeuron 2nd Sale 175k (David Fisher)", "327d6ac848535b169dd7809d11aa76a42e223d0a2e3218de7cb38ac5a7bf6123"),
     // Yuku AI
     ("Yuku SNS 30k", "pcuxr-ctpat-c7m2c-seh76-6bcez-nc5r3-rwbhf-seyrq-ntxnf-iqerm-lae"),
     ("Yuku SNS 6k", "hk7yv-x7zw2-t2dep-sgahc-wnffi-qszuw-4mm5e-faax3-6mqpi-qmlii-7qe"),

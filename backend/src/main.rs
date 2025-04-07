@@ -157,6 +157,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let json_string = serde_json::to_string_pretty(&results)?;
         let file_name = format!("./../graph/public/account_transactions_{}.json", category);
         std::fs::write(&file_name, json_string)?;
+
         println!("Saved {} accounts transactions to {}", category, file_name);
     }
 
