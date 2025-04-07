@@ -581,14 +581,20 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     //
     ("Approver 1", "6202e0cfffbbb22acd373aba740d2c10d84a1c6b044b97fe4f649c9c7a2426b6"),
     ("Burner", "78384208af4e63ff27ec3ea532b1d7ccbadcbad859943267d3296aef2361b6b7"),
+    ("625k / month", "280a38d3c6e7d5bc98921632bb2b24ed946acb535770344e2888faf0d96a902e"),
+    ("Maybe Artia", "cd328886ccadc1b5d7dd517d1b00ebde83bb073d39cc303994356c3b9702d048"),
     //
     // DF
     //
     ("DF 2024-12-13 276k Dep 1", "709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"),
     ("DF 2024-12-13 105k Wd", "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"),
+    // Deposit
     ("2024-12-13 35k Dep", "e109d335b176e52e85a5b31e026d48f9c3d17d9693c011e633804678e5f8a062"),
     ("2024-12-19 110k Dep", "2cab624c4d60644b1f3037236b8695e9f73bf8f415b16a4f8d89a7731a5bfa4d"),
     ("2024-12-19 219k Dep", "bfce22b0e14dd865ca1e0d48be289623f790a98d082999b34189502ff80a9293"),
+    // 2024-08
+    ("DF 2024-08-08 513k Wash", "0ea09c3a35507ec7da41488fd8c339e194105c0d31a40f7da635ced69f0e1aa9"),
+    // 2024-09
     ("DF 2024-09-06 277k Wash", "f12b4d07269097a34fee893ed751673f79456941a541a50b2b54e7215a8a38eb"),
     ("DF 2024-09-12 279k Wash", "0e46428cc7e11cdea82f17d6d2c006e4f272d8411c5beae620ba96e907b85657"),
     // 2024-10
@@ -618,7 +624,9 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     // 2025-03
     ("DF 2025-03-12 391k Wash", "056941e12ba0e21c7aa1c7048652a5337dbf93860864c0eea049614a09de2fed"),
     ("DF 2025-03-27 466k Wash 2", "3decd559162a51e9e9699a46373fffb17c2cf5bbf47b408206ca16571e3f58a6"),
-    ("DF 2025-03-27 OTC -> Coinbase", "d053d16f1e4350aaaf73abe1c380f33dd5be6be6c1f58528213561b4252dd229"),
+    // Coinbase
+    ("DF -> Coinbase", "4709c5949b9fec7d4258c8726a5ee01d92d3d705fd61ee384c8e64b3c0d022cc"),
+    ("DF -> Coinbase", "d053d16f1e4350aaaf73abe1c380f33dd5be6be6c1f58528213561b4252dd229"),
     //
     // Scams
     //
