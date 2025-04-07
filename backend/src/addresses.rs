@@ -315,7 +315,7 @@ pub const SNS_PARTICIPANTS: &[(&str, &str)] = &[
     ("SNS: WTN 12k, Yuku 12k, Alice 4k", "3qzrp-z7r45-vzitp-ylj45-brcdc-vhiyg-xew4i-wpeqg-b2gf6-2xzzd-yqe"),
     ("SNS: DOLR 5k, Yuku 8k", "mlnie-bxsfa-gv7tu-ehhvv-7i24g-b2cnn-qbxnk-q4css-g24an-yinaf-lae"),
     ("SNS: Alice 3k, NFIDW 2k", "27byn-shdjj-bt2ec-jz3jq-hnkgw-6qshf-fi7nj-xixnv-xbaq6-by7tz-kae"),
-    ("SNS: Alice 10k, WTN 20k", "cld52-vm6st-5ulwe-yperp-iwvft-gqt7a-jrbpm-pkdcl-yszk3-zyxvb-wae"),
+    ("SNS: Alice 10k, WTN 20k (DF)", "cld52-vm6st-5ulwe-yperp-iwvft-gqt7a-jrbpm-pkdcl-yszk3-zyxvb-wae"),
     ("SNS: ICPSwap 50k, ICVC 17k", "tfxmx-hpuo2-z2faw-ii37v-wzi4w-o2lre-oup6d-bdhhx-ebglo-ujqzl-5qe"),
     // Alice
     ("Alice SNS 3.5k", "5boyw-rp6w3-gn66y-kqgse-igw5t-xmwjh-ums35-pmicl-5yxiz-uhfjv-cae"),
@@ -573,9 +573,11 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     //
     ("Approver 1", "6202e0cfffbbb22acd373aba740d2c10d84a1c6b044b97fe4f649c9c7a2426b6"),
     ("Burner", "78384208af4e63ff27ec3ea532b1d7ccbadcbad859943267d3296aef2361b6b7"),
-    ("DF Deposit Before 3x105ks", "709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"),
-    ("DF 105k II", "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"),
-    ("DF 105k III", "b6667dd90a9201bf5d2dfafaee8c4e650b5cdfca9e1d3527fcff71d97ccb2bcb"),
+    ("DF 276k Dep 1", "709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"),
+    ("DF 105k Wd 1.1", "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"),
+    ("DF 276k Dep 2", "6dbbb77d998fc9d8460603ee5496fd4c05eb11d9d89f2cf434c43bc2984c5001"),
+    ("DF 129k Wd 2.1", "056941e12ba0e21c7aa1c7048652a5337dbf93860864c0eea049614a09de2fed"),
+    ("DF 110k Wd 2.2", "3decd559162a51e9e9699a46373fffb17c2cf5bbf47b408206ca16571e3f58a6"),
     //
     // Seed
     //
