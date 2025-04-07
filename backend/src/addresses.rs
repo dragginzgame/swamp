@@ -90,12 +90,10 @@ pub const FOUNDATION: &[(&str, &[&str])] = &[
 pub const IDENTIFIED: &[(&str, &str)] = &[
     ("Austin Fatheree", "83a06afc3e0707f633ae839c1e4f756846a13c6bf1d005499a7f50725cf9f8db"),
     ("a16z Confirmed", "cbada211a17812ec0fb21df6f6261c1346435a04fc14e7e22fae9887479ad19a"),
-    ("a16z -> 5.4m", "a52b32f0ae2b096120ae7e085e576c960546d17f01494fe81fc1b640daf7d0c5"),
-    ("a16z -> 5.7m", "64a6e689034cec4ad68fe762f01c5be482cd2799b69583b66a16ec90f318b35d"),
-    ("a16z Beneficiary", "ee5a229b0584939b880ffd446f2f8ae25252706d78298f20efe4a74665206554"),
     ("borovan", "ljxsi-5du4w-3se32-vba6v-dd543-rrj3g-nayx2-f7xhd-o4u7a-ycmxw-bae"),
     ("Cartographer", "0d6960e0d0c92bdd7dfdd7ca6c5472f1506344c49d8e8402513aa94fa5bd2bd0"),
     ("CodeGov", "5awin-45z56-xtcpr-6xlsj-j25mu-q5de7-2rzdj-5675c-mrikh-m5vpg-aqe"),
+    ("David Fisher", "ee5a229b0584939b880ffd446f2f8ae25252706d78298f20efe4a74665206554"),
     ("David the Gnome", "aiuxi-qgbbo-2bls4-7ac4x-suec5-bo6mm-zq6yh-asr25-iug6d-s7csv-jae"),
     ("Gavin H", "7cfaeaa0e14ce862636f052ff307511032e030a3028ead7614f7fc0905c1de41"),
     ("Gian Bity", "aeefae5ddac8f4d8867682749b2d463261a6c36931986372e619dae748be3948"),
