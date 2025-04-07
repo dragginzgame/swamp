@@ -47,6 +47,7 @@ const Graph: React.FC<GraphProps> = ({
     return obj && typeof obj.id === "string";
   }
   const { colorMode } = useContext(ColorModeContext);
+  const ghostLabelColor = colorMode === "dark" ? "white" : "black";
 
   useEffect(() => {
     // console.log(colorMode);
@@ -120,11 +121,112 @@ const Graph: React.FC<GraphProps> = ({
       .selectAll("line")
       .data(links)
       .join("line")
-      .attr("stroke", "#999")
+      .attr("stroke", (d) =>
+        d.connectors && d.connectors.length > 0 ? "#fffb0069" : "#999"
+      )
       .attr("stroke-opacity", 0.6)
       .attr("stroke-width", 1.5)
-      .attr("marker-end", "url(#arrowhead)");
-
+      .attr("marker-end", "url(#arrowhead)")
+      .on("click", (event, d) => {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+      
+        // Remove any existing ghost nodes and labels.
+        container.selectAll(".ghost-node").remove();
+        container.selectAll(".ghost-label-group").remove();
+      
+        // Check if the link has connector data.
+        if (d.connectors && d.connectors.length > 0) {
+          // Ensure we have the source and target positions.
+          let sourceX: number | undefined,
+            sourceY: number | undefined,
+            targetX: number | undefined,
+            targetY: number | undefined;
+          if (typeof d.source !== "string") {
+            const sourceNode = d.source as GraphNode;
+            sourceX = sourceNode.x;
+            sourceY = sourceNode.y;
+          }
+          if (typeof d.target !== "string") {
+            const targetNode = d.target as GraphNode;
+            targetX = targetNode.x;
+            targetY = targetNode.y;
+          }
+      
+          if (
+            sourceX !== undefined &&
+            sourceY !== undefined &&
+            targetX !== undefined &&
+            targetY !== undefined
+          ) {
+            // Compute the midpoint between the source and target.
+            const midX = (sourceX + targetX) / 2;
+            const midY = (sourceY + targetY) / 2;
+            // Increased spacing between ghost nodes.
+            const spacing = 30;
+            // Center the ghost nodes around the midpoint if there are multiple.
+            const offsetBase = (d.connectors.length - 1) / 2;
+      
+            // Determine label color based on colorMode (assumed available in component scope)
+            const ghostLabelColor = colorMode === "dark" ? "white" : "black";
+            // Reverse the label color for the background.
+            const ghostLabelBgColor = ghostLabelColor === "white" ? "black" : "white";
+      
+            d.connectors.forEach((connectorId, i) => {
+              const ghostX = midX;
+              const ghostY = midY + (i - offsetBase) * spacing;
+              // Create the ghost node.
+              container
+                .append("circle")
+                .attr("class", "ghost-node")
+                .attr("cx", ghostX)
+                .attr("cy", ghostY)
+                .attr("r", 8)
+                .attr("fill", "red")
+                .attr("opacity", 0.6);
+      
+              // Create a group to hold both the label background and the label text.
+              const labelGroup = container
+                .append("g")
+                .attr("class", "ghost-label-group")
+                .attr("transform", `translate(${ghostX + 10}, ${ghostY})`);
+      
+              // Append the text element.
+              const textElem = labelGroup
+                .append("text")
+                .attr("class", "ghost-label")
+                .attr("font-size", "10px")
+                .attr("fill", ghostLabelColor)
+                .text(connectorId);
+      
+              // After the text is rendered, get its bounding box and insert a background rect.
+              const bbox = textElem.node()?.getBBox();
+              if (bbox) {
+                labelGroup
+                  .insert("rect", "text")
+                  .attr("x", bbox.x)
+                  .attr("y", bbox.y)
+                  .attr("width", bbox.width)
+                  .attr("height", bbox.height)
+                  .attr("fill", ghostLabelBgColor);
+              }
+            });
+          }
+        }
+      
+        // Add a one-time click handler to remove ghost nodes and labels when clicking outside.
+        svg.on(
+          "click",
+          () => {
+            container.selectAll(".ghost-node").remove();
+            container.selectAll(".ghost-label-group").remove();
+            svg.on("click", null);
+          },
+          { once: true }
+        );
+      });
+      
     // Create node circles.
     const nodeSelection = container
       .append("g")

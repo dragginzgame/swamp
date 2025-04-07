@@ -37,6 +37,35 @@ export default function Home() {
       }
       loadData();
     }, []);
+
+    // useEffect(() => {
+    //   async function loadData() {
+    //     try {
+    //       const categories = [
+    //         // "cex",
+    //         // "defi",
+    //         "foundation",
+    //         // "identified",
+    //         "np",
+    //         // "spammer",
+    //         // "sns",
+    //         // "snsparticipant",
+    //         // "suspect"
+    //       ];
+    //       const fetchPromises = categories.map((cat) =>
+    //         fetch(`/test_${cat}.json`).then((res) => res.json())
+    //       );
+    //       const results = await Promise.all(fetchPromises);
+    //       const mergedData: AccountData[] = results.flat();
+    //       setData(mergedData);
+    //     } catch (err) {
+    //       console.error("Failed to load JSON:", err);
+    //     } finally {
+    //       setLoading(false);
+    //     }
+    //   }
+    //   loadData();
+    // }, []);
     const { setToastData } = useToast();
 
   const updateToast = (obj: ToastMessage) => {
