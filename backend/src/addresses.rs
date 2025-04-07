@@ -503,6 +503,7 @@ pub const SPAMMERS: &[&str] = &[
     "ec7dc45f3edfbe50dfe004281715d3f0f34939e648516048523f203d2934beee",
     "ec88ffbaca45e9244c5d6909ecb5e6831eeb37cfc169a8c227e95da54b8feffe",
     "ed968fe58c887b071e1f4ed4fc67996b721c1534af09adde9893bd37375155ec",
+    "ee5a245b762b164ff9c936cc8fa27967b1b241c2c5ce64c81f8727ca7f5f6554",
     // f
     "f45a7f633d5f4ef0b67ec0675ca590f719db809182a5c392deff9894cbf38109",
     "fbf37edd638b42f52320b01cbccb91f1b46eee205af5d95b59c966c8902031d8",
@@ -516,13 +517,6 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     ("5m ICP", "c5052b8b3d4fc5bc5c0e9ad66aae52681e7c77384e31b29ab1d319c74bb01a24"),
     ("1.4m ICP", "ecedd9b3595d88667b78315da6af8e0de29164ef718f96930e0459017d5d8a04"),
     ("715k ICP", "46305b0d46d5bbf88ccf6a85c92f8f44171c50f1589ad8594ab9e4f183e18f0e"),
-    ("466k ICP (DF)", "3fd4059c5fd21bdb34fd035698217cbfa9311b2cc08a923edf8f12d3d31e6b2e"),
-    ("466k ICP (DF)", "e170cda10b59eb400d4d1031887d4fa2ac98c92cc48695246132a9b5e2954ae5"),
-    ("466k ICP (DF)", "65526ecef3fdcd765ec52cc5e763794f5cc00d844880be193f2ac40e00cab32f"),
-    ("408k ICP (DF)", "ae186a77aa85bd9a9d716453afa8b0b2434dbfa046cedb04283d2494b10f6152"),
-    ("408k ICP (DF)", "14e7d1ac542c0bce0be9953ce0ee8e99ea6d4cb3756db2ad1efdaeabc6bd24f5"),
-    ("360k ICP (DF)", "2f8a5271efc9944a8a6d0c4b8e8cec485847c25001654976d557db99df54dde4"),
-    ("68k ICP (DF)", "63700eb2c134447c7e51e845cff8728428b050e5f3536c822c0a41b18358c1d2"),
     //
     // Bots
     //
@@ -559,6 +553,10 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     ("BIL Hacker ckBTC Account", "az453-x2sxf-wewfl-pszbd-4u4rh-yq7nk-hxkrp-6yvo3-mnlce-zjvsg-qae"),
     ("BIL Weird", "irb66-fu7u3-yqmka-yqzqw-s4hhi-xhnr4-565su-zxlap-nboyf-ojndk-iae"),
     ("ufwij", "ufwij-jggzv-owfkb-cs26m-p7j3y-awpqg-3oa33-x4ciu-vadlo-2jb7f-gae"),
+    ("Cosmicrafts 1", "xohn2-daaaa-aaaak-aadvq-cai"),
+    ("Cosmicrafts 2", "d3qms-qyaaa-aaaal-qa3oa-cai"),
+    ("Cosmicrafts 3", "kkrsm-2qaaa-aaaao-aajza-cai"),
+    ("Cosmicrafts 4", "is7gy-jgfpp-4fnpe-da4au-xbb5e-iflz6-kuqge-wef4p-fpeo4-gftlc-mae"),
     //
     // Neuron Fund
     //
@@ -580,18 +578,61 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     //
     ("Approver 1", "6202e0cfffbbb22acd373aba740d2c10d84a1c6b044b97fe4f649c9c7a2426b6"),
     ("Burner", "78384208af4e63ff27ec3ea532b1d7ccbadcbad859943267d3296aef2361b6b7"),
+    ("625k / month", "280a38d3c6e7d5bc98921632bb2b24ed946acb535770344e2888faf0d96a902e"),
+    ("Maybe Artia", "cd328886ccadc1b5d7dd517d1b00ebde83bb073d39cc303994356c3b9702d048"),
     //
     // DF
     //
+    // Hoard
+    ("466k ICP (DF)", "3fd4059c5fd21bdb34fd035698217cbfa9311b2cc08a923edf8f12d3d31e6b2e"),
+    ("466k ICP (DF)", "e170cda10b59eb400d4d1031887d4fa2ac98c92cc48695246132a9b5e2954ae5"),
+    ("466k ICP (DF)", "65526ecef3fdcd765ec52cc5e763794f5cc00d844880be193f2ac40e00cab32f"),
+    ("408k ICP (DF)", "ae186a77aa85bd9a9d716453afa8b0b2434dbfa046cedb04283d2494b10f6152"),
+    ("408k ICP (DF)", "14e7d1ac542c0bce0be9953ce0ee8e99ea6d4cb3756db2ad1efdaeabc6bd24f5"),
+    ("360k ICP (DF)", "2f8a5271efc9944a8a6d0c4b8e8cec485847c25001654976d557db99df54dde4"),
+    ("68k ICP (DF)", "63700eb2c134447c7e51e845cff8728428b050e5f3536c822c0a41b18358c1d2"),
+    // Txs
     ("DF 2024-12-13 276k Dep 1", "709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"),
-    ("DF 2024-12-13 276k Dep 2", "6dbbb77d998fc9d8460603ee5496fd4c05eb11d9d89f2cf434c43bc2984c5001"),
     ("DF 2024-12-13 105k Wd", "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"),
-    ("2024-12-13 35k Dep", "e109d335b176e52e85a5b31e026d48f9c3d17d9693c011e633804678e5f8a062"),
-    ("2024-12-19 110k Dep", "2cab624c4d60644b1f3037236b8695e9f73bf8f415b16a4f8d89a7731a5bfa4d"),
-    ("2024-12-19 219k Dep", "bfce22b0e14dd865ca1e0d48be289623f790a98d082999b34189502ff80a9293"),
+    ("?? 2024-12-13 35k Dep", "e109d335b176e52e85a5b31e026d48f9c3d17d9693c011e633804678e5f8a062"),
+    ("?? 2024-12-19 110k Dep", "2cab624c4d60644b1f3037236b8695e9f73bf8f415b16a4f8d89a7731a5bfa4d"),
+    ("?? 2024-12-19 219k Dep", "bfce22b0e14dd865ca1e0d48be289623f790a98d082999b34189502ff80a9293"),
+    // 2024-08
+    ("DF 2024-08-08 513k Wash", "0ea09c3a35507ec7da41488fd8c339e194105c0d31a40f7da635ced69f0e1aa9"),
+    // 2024-09
+    ("DF 2024-09-06 277k Wash", "f12b4d07269097a34fee893ed751673f79456941a541a50b2b54e7215a8a38eb"),
+    ("DF 2024-09-12 279k Wash", "0e46428cc7e11cdea82f17d6d2c006e4f272d8411c5beae620ba96e907b85657"),
+    // 2024-10
+    ("DF 2024-10-03 277k Wash", "a9184dd1c39094257a072f828d8a1edb86fac5f2a8317b5fbf6050fa6d4995d2"),
+    ("DF 2024-10-03 279k Wash", "7b7599ec24d0a68790cc61e99c929bb0c69f8e5264ddf972786d7f197d681377"),
+    ("DF 2024-10-03 279k Wash", "c4c4a60dae070437f1ff0106a007f59862818b6299463092597af335ddb82133"),
+    ("DF 2024-10-15 251k Wash", "0485704bcf8395fdf0bcb516af21e4d8aeed6e01636127391725699b65f0cfcf"),
+    // 2024-11
+    ("DF 2024-11-07 326k Wash", "eb5e64453a936e6eb34a728f4d72c5e3cd83a44ce832cd8d8ba551b87bde1099"),
+    ("DF 2024-11-07 326k Wash", "559391c77bc26aef32805282099bc4776b1b3ea21a24357b25b8886bb01a9db4"),
+    // 2024-12
+    ("DF 2024-12-02 276k Wash", "4db822d84841dd15e68ba488c8e59cbd58b6aec156dadb430c83bf7a826592f1"),
+    ("DF 2024-12-13 276k Wash", "6dbbb77d998fc9d8460603ee5496fd4c05eb11d9d89f2cf434c43bc2984c5001"),
+    // 2025-01
+    ("DF 2025-01-13 245k Wash", "24300cb0ded4823934d84e4b481bc5367d644a75c3c928dcee51187b2aa32b4c"),
+    ("DF 2025-01-13 245k Wash", "87c763cd2d60e3828f78aea0a5e4e7f998ecc01ed0796c1b52f959cb7329e7c0"),
+    ("DF 2025-01-13 246k Wash", "12afc2c709df25871c3d46fffac291e7f8c212d2bcb6a0f6b7f7bcdd61499cd1"),
+    ("DF 2025-01-15 250k Wash", "5d5e8bdc51e94f703f98892fd168c8db49711064846e547294efc0ea7bf87699"),
+    ("DF 2025-01-15 250k Wash", "927e7c89a1cf8b7fe83160ecd27589da1d7907a91d2b549f39d28304937b3baa"),
+    ("DF 2025-01-17 250k Wash", "b4702f900d1df7b2dacf7c985e712adde7e56a5441b685a8ef690df9508a73c7"),
+    ("DF 2025-01-20 250k Wash", "c75bc036fcad8ca4c9cfaaeeb307dfb49270afc6bcb1508752bcdf313b9ee11e"),
+    ("DF 2025-01-23 250k Wash", "1ef1687c2394905c539e153ad7db709899bf31503ce111ea23ff8002fc1389f1"),
+    // 2025-02
+    ("DF 2025-02-01 285k Wash", "76213b6afeae8c53f3b52d9f1944deb2b70b42d076d7732aad8a34ebd547e546"),
+    ("DF 2025-02-04 272k Wash", "97d89567701c71f2964efb7ae05ce8979f35b0f50347587cbf411e64084cccd9"),
+    ("DF 2025-02-05 345k Wash", "5ee7469fc50152d6c00557acc61c9229a0ae8c720113b038cc27ca7e2d9049b6"),
+    ("DF 2025-02-26 356k Wash", "78021bd895f2f70ce56670d3b1d53ab1ec46abebb86e36d3aa8e27242e3bc8c4"),
+    // 2025-03
     ("DF 2025-03-12 391k Wash", "056941e12ba0e21c7aa1c7048652a5337dbf93860864c0eea049614a09de2fed"),
     ("DF 2025-03-27 466k Wash 2", "3decd559162a51e9e9699a46373fffb17c2cf5bbf47b408206ca16571e3f58a6"),
-    ("DF 2025-03-27 OTC -> Coinbase", "d053d16f1e4350aaaf73abe1c380f33dd5be6be6c1f58528213561b4252dd229"),
+    // Coinbase
+    ("DF -> Coinbase", "4709c5949b9fec7d4258c8726a5ee01d92d3d705fd61ee384c8e64b3c0d022cc"),
+    ("DF -> Coinbase", "d053d16f1e4350aaaf73abe1c380f33dd5be6be6c1f58528213561b4252dd229"),
     //
     // Scams
     //
