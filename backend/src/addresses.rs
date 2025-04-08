@@ -9,8 +9,13 @@ pub const CEXES: &[(&str, &[&str])] = &[
         ],
     ),
     ("Bybit", &["acd76fff0536f863d9dd4b326a1435466f82305758b4b1b4f62ff9fa81c14073"]),
-    ("CoinEx", &["9ee1f8087be914d67560484d7e5794115873eb21b4f4b408f338406abf42d324"]),
-    ("CoinEx (inactive)", &["c50accaa515fe677f04d6a608d306dce10ed0d46048aa5105cb549256f3c4433"]),
+    (
+        "CoinEx",
+        &[
+            "9ee1f8087be914d67560484d7e5794115873eb21b4f4b408f338406abf42d324",
+            "c50accaa515fe677f04d6a608d306dce10ed0d46048aa5105cb549256f3c4433",
+        ],
+    ),
     (
         "Coinbase",
         &[
@@ -292,103 +297,8 @@ pub const SNSES: &[(&str, &str)] = &[
     ("SONIC", "qgj7v-3qaaa-aaaaq-aabwa-cai"),
     ("TRAX", "elxqo-raaaa-aaaaq-aacba-cai"),
     ("WaterNeuron", "jfnic-kaaaa-aaaaq-aadla-cai"),
+    ("WaterNeuron II", "2d34555b52104a49a20d2cc1db53799bc54ece4946c5248e9b3b01e40cec9082"),
     ("Yuku AI", "auadn-oqaaa-aaaaq-aacya-cai"),
-];
-
-pub const SNS_PARTICIPANTS: &[(&str, &str)] = &[
-    //
-    // SNS Participants
-    //
-    // Many
-    ("SNS: DOLR 2k, WTN 5k", "vgrm6-ur624-kl4qd-3sukh-wssor-ztoox-ecgbu-ebvn5-f4hgu-quqyk-pae"),
-    ("SNS: WTN 12k, Yuku 12k, Alice 4k", "3qzrp-z7r45-vzitp-ylj45-brcdc-vhiyg-xew4i-wpeqg-b2gf6-2xzzd-yqe"),
-    ("SNS: DOLR 5k, Yuku 8k", "mlnie-bxsfa-gv7tu-ehhvv-7i24g-b2cnn-qbxnk-q4css-g24an-yinaf-lae"),
-    ("SNS: Alice 3k, NFIDW 2k", "27byn-shdjj-bt2ec-jz3jq-hnkgw-6qshf-fi7nj-xixnv-xbaq6-by7tz-kae"),
-    ("SNS: Alice 10k, WTN 20k (DF)", "cld52-vm6st-5ulwe-yperp-iwvft-gqt7a-jrbpm-pkdcl-yszk3-zyxvb-wae"),
-    ("SNS: ICPSwap 50k, ICVC 17k", "tfxmx-hpuo2-z2faw-ii37v-wzi4w-o2lre-oup6d-bdhhx-ebglo-ujqzl-5qe"),
-    // Alice
-    ("Alice SNS 3.5k", "5boyw-rp6w3-gn66y-kqgse-igw5t-xmwjh-ums35-pmicl-5yxiz-uhfjv-cae"),
-    ("Alice SNS 2.5k", "kwhw3-kexxs-hh45h-w4s7e-tzjxu-zqvln-edkon-kwoh6-5xvtx-iaeng-yqe"),
-    ("Alice SNS 2k", "ww2jx-jrz3a-ycha4-3qvql-hgwim-juh2o-dquln-jrcie-s5wrl-xyims-aqe"),
-    ("Alice SNS 2k", "7san4-okna2-mlprv-2wlqi-w6bz2-u75xy-pkjlw-jsv32-guzes-r3ojs-2qe"),
-    ("Alice SNS 2k", "th65x-be7bq-thkki-clkqi-kpt5z-td2ji-rnz7r-jzk6i-zsj4o-fd3yb-uae"),
-    ("Alice SNS 1k", "wtio3-vyvwo-djf2j-rmh6f-5r5fh-imkir-f6k6w-3nwvm-w7nvg-g4gpa-tae"),
-    // DOLR
-    ("DOLR SNS 150k", "n4gtt-k6lm6-26bnm-iy7nd-syyub-zaz7y-ikmi6-74w3u-7c3wk-iuqxt-rae"),
-    ("DOLR SNS 93k", "74ekp-mnvbw-gdabj-3ho4b-jao7e-5f7iu-27xik-ouf6s-w3u22-jmzer-yqe"),
-    ("DOLR SNS 6k", "lvsje-wfazq-xzrha-quuz7-quwur-67jl7-nbb7v-5llqf-vclab-slswv-rae"),
-    ("DOLR SNS 5k", "bmhrf-hq2zu-dlrcg-6d375-xc2x6-ljmmx-g36gu-bz2eb-sm6m3-lfdgk-uqe"),
-    ("DOLR SNS 4k", "r4ixk-5nzuy-qpjsj-3srvi-qr6yj-iydup-7kt3j-2rdf4-dfeok-5nhnk-iqe"),
-    // FomoWell
-    ("FomoWell SNS 9k", "lqg4j-7ia6a-35xbl-cqyge-ygedg-hreu7-ey23r-o75da-sjysa-ul2hd-gae"),
-    ("FomoWell SNS 9k", "2ilme-ityi5-x5tnr-v6fqo-ptwgz-sz3jy-kfnm7-con4a-7xtsd-24qcx-bqe"),
-    ("FomoWell SNS 8k", "jxagt-t5peo-f37ia-sa2qj-uxck7-xuaky-u4dmm-mjlyy-jzdvm-zlh7z-pqe"),
-    ("FomoWell SNS 7k", "wbgeu-najtu-dnbyg-aanjq-cnjbo-iv4ww-5zqhv-u3i6q-5ibu7-tmpmu-lae"),
-    ("FomoWell SNS 5k", "4uuwq-a5be5-3xmy2-augbb-qkwkt-myamy-eyyi6-bjr2d-xealc-pj6kw-eae"),
-    ("FomoWell SNS 5k", "aympm-5rio2-3ia3x-3akvi-q3i3n-z3uop-vhkpl-aqals-7e63d-fhkbe-vae"),
-    ("FomoWell SNS 5k", "ygge7-et7ta-yfem4-3bgzj-mtr7s-yuacx-3w3jv-adech-wumey-djgtc-gae"),
-    ("FomoWell SNS 5k", "r2gx5-ybbxe-5ydur-unxzq-tf4md-chvtj-63pw3-hgcxk-2berj-5vdvv-kqe"),
-    ("FomoWell SNS 4k", "j45sz-ou2ji-oi6va-fzvnl-n2div-kvmc6-rvciy-n2rbi-aw2zk-rq53y-wqe"),
-    ("FomoWell SNS 3k", "nta2n-ezhdg-cqdwy-s2rui-qfqyz-jjfeq-3vklv-2626u-wzzxi-43psa-zae"),
-    ("FomoWell SNS 2k", "32opp-houiq-hswoc-bezg2-kizdu-rrprd-wslwm-7ktne-r2gyy-zan6b-dqe"),
-    ("FomoWell SNS 2k", "4zaho-oy6oh-vgswm-axccn-nbpdb-4mraq-iaryu-kvhgx-tilag-okte2-vae"),
-    ("FomoWell SNS 2k", "mvkka-yg42z-hinjk-yo4w7-uzpik-iqyme-utynn-m6t4z-quhuy-37eju-wae"),
-    ("FomoWell SNS 1k", "7jnbz-ta45w-3vvd2-hghxy-cvext-rwpxo-7342o-5kkjt-q5puz-m7v7i-tqe"),
-    // FuelEV
-    ("FuelEV SNS 7.5k", "mxdob-jhdxa-6oxow-rjk5x-b5frs-k7kno-oxics-tmcky-5f62q-n6biy-bae"),
-    ("FuelEV SNS 6.5k", "rxom7-w4otd-lfmpa-c4wcs-gugja-2bvdz-x3rqy-ytcu3-b3lew-lxdq3-aqe"),
-    ("FuelEV SNS 6k", "yvm75-incaw-n5bvx-so7pi-3x255-harni-avdmu-wwwuq-34dnt-j3ngi-tae"),
-    ("FuelEV SNS 6k", "nwzvm-zhkur-grqnz-dmd7t-vxcpm-hm6pw-guwei-jehi3-lbhjq-dubuo-hqe"),
-    ("FuelEV SNS 6k", "u5ha5-f6l7r-2lccy-5juy3-cjy6j-5zwdu-aj2jq-k42nd-q6754-g2nlv-vqe"),
-    ("FuelEV SNS 6k", "k5btm-ye75h-tle5b-6j7js-4yjol-clmr7-waklm-dsnuc-ztdjz-bcumn-kqe"),
-    ("FuelEV SNS 4k", "zfeqd-7bvoc-w7uki-rsbe5-v2hmh-qdljb-dilke-voc7b-edgr3-gx2rq-eae"),
-    ("FuelEV SNS 5k", "nkgwd-q2scf-xqmet-d6cqr-gjy7x-zl5hv-ou3am-cc7qv-knsun-pafav-rqe"),
-    ("FuelEV SNS 5k", "7c6eh-ijdxj-clnm5-o5id4-okihg-7t7py-awb54-3xkgp-fozce-2ow3y-yae"),
-    ("FuelEV SNS 6k", "dbxmv-nuiwm-by426-s4xho-z2yc3-pnx5e-lqg7d-lckoc-v3bwx-jk2rz-yae"),
-    // ICPEx
-    ("ICPEx SNS 30k", "fznfr-p3puw-izxeh-ud4qr-k26q2-pdgfh-vxmr5-kswww-okpb2-cohna-5ae"),
-    ("ICPEx SNS 17k", "meavt-eugdu-w4zjb-gr3qe-nvqxl-dv6pl-t256f-aussh-xpp6d-wzy4c-rae"),
-    ("ICPEx SNS 12k", "e4s3u-6prhs-ll5vk-fkcel-33xw7-5t6d7-raqjs-2js2b-zblrn-smowm-eae"),
-    ("ICPEx SNS 11k", "jusdz-4xamz-xdnq5-uso3u-hralh-a55cp-zyek4-wnaxo-7xpkr-jxmwf-jae"),
-    ("ICPEx SNS 10k", "w6ezf-7ywlx-gofjr-zek2o-v32pm-fsoj4-cim2x-cbdmi-jrtlb-skfez-3ae"),
-    ("ICPEx SNS 10k", "q5cqr-x4pj3-n7feb-ratsg-y7hwi-bwpja-xs7b3-f5m65-m6jfl-yodd2-vqe"),
-    // ICPSwap
-    ("ICPSwap SNS 26k", "eelqg-w3mgp-4btdz-6fagh-xcbgs-4pik7-pzolk-f3sdw-qajex-3hnhr-oae"),
-    ("ICPSwap SNS 10k", "cvtfn-74z2v-v2m5k-ohidc-gdb3e-hde7g-hvsqc-gwdmx-oef7y-vub72-oae"),
-    ("ICPSwap SNS 10k", "6n7h6-6cvld-44lpq-wvpoj-mk6ur-slbhz-mqu4w-yerqn-btnzc-hwwdy-mqe"),
-    ("ICPSwap SNS 9k", "w23jp-jvtce-32ob6-lhxwb-sjrbf-tyq7q-oifov-ijy24-gz6jf-gfogx-bqe"),
-    // ICVC
-    ("ICVC SNS 23k", "2sgpc-zn4to-caeip-fqikj-rhfcd-rzelp-vc6we-3ud7d-f4fxf-mui4v-5qe"),
-    ("ICVC SNS 20k", "6o2ns-jjwx5-wcwrk-3jrj6-qbcz7-dvolt-cmi4d-cil55-ehniw-bxtmt-hae"),
-    ("ICVC SNS 20k", "rnt66-opaox-kkvbo-mvmwk-yavr3-6bcrp-ccxqf-auunj-mriwj-5eeau-fae"),
-    ("ICVC SNS 20k", "vctcx-gughm-cy4ed-4z6pt-6avjj-ngym4-uvwm2-kb56h-lghvd-2izv3-fqe"),
-    ("ICVC SNS 17k", "5tzzh-kqopl-zychr-jjyoi-cpvu5-y2ai7-ggf3n-icajy-bszp6-2qenk-lae"),
-    // NFIDW
-    ("NFIDW SNS 8k", "bxnp4-ym2h2-nrdxf-l5wgq-agnjv-2dei4-26s54-welyl-wk3ry-sfr4w-qqe"),
-    ("NFIDW SNS 8k", "3rxla-jua5q-xopzh-52v2p-5ih5h-s4yvq-ro2co-gdnzg-xiznr-5ubhj-3qe"),
-    ("NFIDW SNS 6.5k", "24amu-ld2uy-2klfg-kxyhq-ahwsc-vdciv-emymv-g3khl-fsawa-7ekoq-sqe"),
-    ("NFIDW SNS 5k", "ojna7-4o6fi-f4pzd-zu5m2-m5na4-miajz-kz65q-ecmmh-34j43-cfuun-gqe"),
-    ("NFIDW SNS 2k", "v6zy5-xc6h3-oduqq-rfib4-cc4n2-vyeip-4fthl-7qjir-oke3k-ftpvv-3qe"),
-    // WaterNeuron
-    ("WaterNeuron SNS 117k (Gian)", "ll6pj-3wsrz-glcqo-bhjl7-s7wsj-eaykn-sllr5-4klcj-wxgbe-jm2ei-zqe"),
-    ("WaterNeuron SNS 50k", "zvcax-7pun5-oy64t-aynez-yo2jp-ftieg-otq24-ohoxk-6nlth-64fxt-tae"),
-    ("WaterNeuron SNS 34k", "ifdcz-ditqo-tojui-ncj6w-tukjj-4ujn5-j5ibk-ksch7-abkr5-pd22f-fae"),
-    ("WaterNeuron SNS 6k", "k57i6-rqxsp-3w5kd-oictq-iokt4-uqzvz-yophv-rkfkk-bnqcd-v34ie-yae"),
-    ("WaterNeuron SNS 5k", "ujszi-xic4g-vwnse-qpaqj-ybjvs-bfosw-qnzrt-atp4z-sovvc-4i4ak-wqe"),
-    ("WaterNeuron SNS 4k", "ulvvb-xozrw-cco4f-ucqug-wuiwd-iyfu5-36fgm-fnv4x-jw3j5-ey6c4-mqe"),
-    ("WaterNeuron SNS 3k", "ml6n5-esoaq-crnni-5vg4t-xolbb-clnn2-cfaud-f5i4c-rajya-fzeaz-yqe"),
-    ("WaterNeuron SNS 3k", "k4ra3-t2hvw-g3ww3-zdtx6-pqmj3-tveyx-ajjdl-5dqsv-zygbq-zhab6-6ae"),
-    // WaterNeuron 2nd sale
-    ("WaterNeuron 2nd Sale Deposit", "2d34555b52104a49a20d2cc1db53799bc54ece4946c5248e9b3b01e40cec9082"),
-    ("WaterNeuron 2nd Sale 175k (David Fisher)", "327d6ac848535b169dd7809d11aa76a42e223d0a2e3218de7cb38ac5a7bf6123"),
-    // Yuku AI
-    ("Yuku SNS 30k", "pcuxr-ctpat-c7m2c-seh76-6bcez-nc5r3-rwbhf-seyrq-ntxnf-iqerm-lae"),
-    ("Yuku SNS 6k", "hk7yv-x7zw2-t2dep-sgahc-wnffi-qszuw-4mm5e-faax3-6mqpi-qmlii-7qe"),
-    ("Yuku SNS 5k", "y7bw2-cqsrh-xehac-gbcya-366ov-k2red-g6imq-ylwrj-wjoid-gsj6v-sae"),
-    ("Yuku SNS 2k", "elag7-zzhos-zwodk-cd4uv-rzx7t-extc6-yxv6g-mq7z6-kn3jt-u56ba-bae"),
-    ("Yuku SNS 2k", "wgn2s-bv3mc-ayri6-xqnuu-5zue6-jsicj-s6mcd-zshsi-utkvg-26w2n-2ae"),
-    ("Yuku SNS 2k", "aqzai-meyuz-xpeyo-zcxc2-ydfyk-ssqmt-x7tuj-4f7tj-3xkka-zsjaq-oae"),
-    ("Yuku SNS 2k", "olskz-65jdj-vbl6r-erszi-dfe4z-i3tl5-t43x6-fg25v-h53ww-wpt34-oae"),
 ];
 
 pub const SPAMMERS: &[&str] = &[
@@ -506,6 +416,7 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     ("5m ICP", "c5052b8b3d4fc5bc5c0e9ad66aae52681e7c77384e31b29ab1d319c74bb01a24"),
     ("1.4m ICP", "ecedd9b3595d88667b78315da6af8e0de29164ef718f96930e0459017d5d8a04"),
     ("715k ICP", "46305b0d46d5bbf88ccf6a85c92f8f44171c50f1589ad8594ab9e4f183e18f0e"),
+    ("291k ICP", "c51cc8d8bad270b4be891db7655b611cda662160d2c40b9977033421916b997a"),
     //
     // Bots
     //
@@ -573,6 +484,7 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     //
     // DF
     //
+    ("WaterNeuron 2nd Sale 175k (David Fisher)", "327d6ac848535b169dd7809d11aa76a42e223d0a2e3218de7cb38ac5a7bf6123"),
     // Hoard
     ("466k ICP (DF)", "3fd4059c5fd21bdb34fd035698217cbfa9311b2cc08a923edf8f12d3d31e6b2e"),
     ("466k ICP (DF)", "e170cda10b59eb400d4d1031887d4fa2ac98c92cc48695246132a9b5e2954ae5"),
@@ -581,12 +493,24 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     ("408k ICP (DF)", "14e7d1ac542c0bce0be9953ce0ee8e99ea6d4cb3756db2ad1efdaeabc6bd24f5"),
     ("360k ICP (DF)", "2f8a5271efc9944a8a6d0c4b8e8cec485847c25001654976d557db99df54dde4"),
     ("68k ICP (DF)", "63700eb2c134447c7e51e845cff8728428b050e5f3536c822c0a41b18358c1d2"),
+    // Connectors
+    ("DF Connector", "dddc8a930f16c8ebecc84357bae7bb8127019dee72e48eeef6ed7db74a50dac3"),
+    ("DF Connector", "767f442edfb5b102d3e391176c4e8490b6f94e15b63fd58423d1f97cb1d1f413"),
     // Txs
     ("DF 2024-12-13 276k Dep 1", "709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"),
     ("DF 2024-12-13 105k Wd", "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"),
     ("?? 2024-12-13 35k Dep", "e109d335b176e52e85a5b31e026d48f9c3d17d9693c011e633804678e5f8a062"),
     ("?? 2024-12-19 110k Dep", "2cab624c4d60644b1f3037236b8695e9f73bf8f415b16a4f8d89a7731a5bfa4d"),
     ("?? 2024-12-19 219k Dep", "bfce22b0e14dd865ca1e0d48be289623f790a98d082999b34189502ff80a9293"),
+    // 2023-11
+    ("DF 2023-11-07 500k Wash", "d31297042983582a094baafe9b83d7205959de2f9c429378bda7815923aad63b"),
+    ("DF 2023-11-08 241k Wash", "6f243fcd8e90afaf032132a1181de53a38e226258650b4c8283ded31c7f8ceee"),
+    ("DF 2023-11-10 239k Wash", "02e33528003088a84a1493fdf8fd84b37c7eebcf57316d39bb9f4f3b49d85ec0"),
+    ("DF 2023-11-10 197k Wash", "27793bafb9619102bda34eb6d4731a7c714ff6947bb44e7f08f877ecaf3ae3bb"),
+    ("DF 2023-11-17 266k Wash", "62f66f1eda3a1bb0c0223ec6c95d5216a61bad91d74a552502cbf8e6607d9794"),
+    // 2023-12
+    ("DF 2023-12-05 134k Wash", "f5d9051f7cb5ab32e54d471063c110aeca59b13e927e324613874fa124d82476"),
+    ("DF 2023-12-14 170k Wash", "db597db1cecbfe54450fa0be67c2d645ceac2212db05c728858b146961f49ea3"),
     // 2024-08
     ("DF 2024-08-08 513k Wash", "0ea09c3a35507ec7da41488fd8c339e194105c0d31a40f7da635ced69f0e1aa9"),
     // 2024-09
