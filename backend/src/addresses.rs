@@ -818,10 +818,15 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     ("BIL Hacker ckBTC Account", &["az453-x2sxf-wewfl-pszbd-4u4rh-yq7nk-hxkrp-6yvo3-mnlce-zjvsg-qae"]),
     ("BIL Weird", &["irb66-fu7u3-yqmka-yqzqw-s4hhi-xhnr4-565su-zxlap-nboyf-ojndk-iae"]),
     ("ufwij", &["ufwij-jggzv-owfkb-cs26m-p7j3y-awpqg-3oa33-x4ciu-vadlo-2jb7f-gae"]),
-    ("Cosmicrafts 1", &["xohn2-daaaa-aaaak-aadvq-cai"]),
-    ("Cosmicrafts 2", &["d3qms-qyaaa-aaaal-qa3oa-cai"]),
-    ("Cosmicrafts 3", &["kkrsm-2qaaa-aaaao-aajza-cai"]),
-    ("Cosmicrafts 4", &["is7gy-jgfpp-4fnpe-da4au-xbb5e-iflz6-kuqge-wef4p-fpeo4-gftlc-mae"]),
+    (
+        "Cosmicrafts Controller",
+        &[
+            "xohn2-daaaa-aaaak-aadvq-cai",
+            "d3qms-qyaaa-aaaal-qa3oa-cai",
+            "kkrsm-2qaaa-aaaao-aajza-cai",
+            "is7gy-jgfpp-4fnpe-da4au-xbb5e-iflz6-kuqge-wef4p-fpeo4-gftlc-mae",
+        ],
+    ),
     //
     // Neuron Fund
     //
@@ -858,65 +863,70 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     ("360k ICP (DF)", &["2f8a5271efc9944a8a6d0c4b8e8cec485847c25001654976d557db99df54dde4"]),
     ("68k ICP (DF)", &["63700eb2c134447c7e51e845cff8728428b050e5f3536c822c0a41b18358c1d2"]),
     // Connectors
-    ("DF Connector", &["dddc8a930f16c8ebecc84357bae7bb8127019dee72e48eeef6ed7db74a50dac3"]),
-    ("DF Connector", &["767f442edfb5b102d3e391176c4e8490b6f94e15b63fd58423d1f97cb1d1f413"]),
-    ("DF Connector", &["d9298b44c3d0fed9177033b54007a25d06ad7f3e0f122ce5d6aef5c8bb4d5fa6"]),
+    (
+        "DF Connector",
+        &[
+            "dddc8a930f16c8ebecc84357bae7bb8127019dee72e48eeef6ed7db74a50dac3",
+            "767f442edfb5b102d3e391176c4e8490b6f94e15b63fd58423d1f97cb1d1f413",
+            "d9298b44c3d0fed9177033b54007a25d06ad7f3e0f122ce5d6aef5c8bb4d5fa6",
+        ],
+    ),
     // Txs
     ("DF 2024-12-13 276k Dep 1", &["709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"]),
     ("DF 2024-12-13 105k Wd", &["da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"]),
     ("?? 2024-12-13 35k Dep", &["e109d335b176e52e85a5b31e026d48f9c3d17d9693c011e633804678e5f8a062"]),
     ("?? 2024-12-19 110k Dep", &["2cab624c4d60644b1f3037236b8695e9f73bf8f415b16a4f8d89a7731a5bfa4d"]),
     ("?? 2024-12-19 219k Dep", &["bfce22b0e14dd865ca1e0d48be289623f790a98d082999b34189502ff80a9293"]),
-    // 2023-11
-    ("DF 2023-11-07 500k Wash", &["d31297042983582a094baafe9b83d7205959de2f9c429378bda7815923aad63b"]),
-    ("DF 2023-11-08 241k Wash", &["6f243fcd8e90afaf032132a1181de53a38e226258650b4c8283ded31c7f8ceee"]),
-    ("DF 2023-11-10 239k Wash", &["02e33528003088a84a1493fdf8fd84b37c7eebcf57316d39bb9f4f3b49d85ec0"]),
-    ("DF 2023-11-10 197k Wash", &["27793bafb9619102bda34eb6d4731a7c714ff6947bb44e7f08f877ecaf3ae3bb"]),
-    ("DF 2023-11-17 266k Wash", &["62f66f1eda3a1bb0c0223ec6c95d5216a61bad91d74a552502cbf8e6607d9794"]),
-    // 2023-12
-    ("DF 2023-12-05 134k Wash", &["f5d9051f7cb5ab32e54d471063c110aeca59b13e927e324613874fa124d82476"]),
-    ("DF 2023-12-28 219k Wash", &["d4bb05ad677d141296dadec69c31d406d1200ed4766e7ddfdcabd5b45739cd16"]),
-    // 2024-08
-    ("DF 2024-08-08 513k Wash", &["0ea09c3a35507ec7da41488fd8c339e194105c0d31a40f7da635ced69f0e1aa9"]),
-    // 2024-09
-    ("DF 2024-09-06 277k Wash", &["f12b4d07269097a34fee893ed751673f79456941a541a50b2b54e7215a8a38eb"]),
-    ("DF 2024-09-12 279k Wash", &["0e46428cc7e11cdea82f17d6d2c006e4f272d8411c5beae620ba96e907b85657"]),
-    // 2024-10
-    ("DF 2024-10-03 277k Wash", &["a9184dd1c39094257a072f828d8a1edb86fac5f2a8317b5fbf6050fa6d4995d2"]),
-    ("DF 2024-10-03 279k Wash", &["7b7599ec24d0a68790cc61e99c929bb0c69f8e5264ddf972786d7f197d681377"]),
-    ("DF 2024-10-03 279k Wash", &["c4c4a60dae070437f1ff0106a007f59862818b6299463092597af335ddb82133"]),
-    ("DF 2024-10-15 251k Wash", &["0485704bcf8395fdf0bcb516af21e4d8aeed6e01636127391725699b65f0cfcf"]),
-    // 2024-11
-    ("DF 2024-11-07 326k Wash", &["eb5e64453a936e6eb34a728f4d72c5e3cd83a44ce832cd8d8ba551b87bde1099"]),
-    ("DF 2024-11-07 326k Wash", &["559391c77bc26aef32805282099bc4776b1b3ea21a24357b25b8886bb01a9db4"]),
-    // 2024-12
-    ("DF 2024-12-02 276k Wash", &["4db822d84841dd15e68ba488c8e59cbd58b6aec156dadb430c83bf7a826592f1"]),
-    ("DF 2024-12-13 276k Wash", &["6dbbb77d998fc9d8460603ee5496fd4c05eb11d9d89f2cf434c43bc2984c5001"]),
-    ("DF 2024-12-14 170k Wash", &["db597db1cecbfe54450fa0be67c2d645ceac2212db05c728858b146961f49ea3"]),
-    // 2025-01
-    ("DF 2025-01-13 245k Wash", &["24300cb0ded4823934d84e4b481bc5367d644a75c3c928dcee51187b2aa32b4c"]),
-    ("DF 2025-01-13 245k Wash", &["87c763cd2d60e3828f78aea0a5e4e7f998ecc01ed0796c1b52f959cb7329e7c0"]),
-    ("DF 2025-01-13 246k Wash", &["12afc2c709df25871c3d46fffac291e7f8c212d2bcb6a0f6b7f7bcdd61499cd1"]),
-    ("DF 2025-01-15 250k Wash", &["5d5e8bdc51e94f703f98892fd168c8db49711064846e547294efc0ea7bf87699"]),
-    ("DF 2025-01-15 250k Wash", &["927e7c89a1cf8b7fe83160ecd27589da1d7907a91d2b549f39d28304937b3baa"]),
-    ("DF 2025-01-17 250k Wash", &["b4702f900d1df7b2dacf7c985e712adde7e56a5441b685a8ef690df9508a73c7"]),
-    ("DF 2025-01-20 250k Wash", &["c75bc036fcad8ca4c9cfaaeeb307dfb49270afc6bcb1508752bcdf313b9ee11e"]),
-    ("DF 2025-01-23 250k Wash", &["1ef1687c2394905c539e153ad7db709899bf31503ce111ea23ff8002fc1389f1"]),
-    // 2025-02
-    ("DF 2025-02-01 285k Wash", &["76213b6afeae8c53f3b52d9f1944deb2b70b42d076d7732aad8a34ebd547e546"]),
-    ("DF 2025-02-04 272k Wash", &["97d89567701c71f2964efb7ae05ce8979f35b0f50347587cbf411e64084cccd9"]),
-    ("DF 2025-02-05 345k Wash", &["5ee7469fc50152d6c00557acc61c9229a0ae8c720113b038cc27ca7e2d9049b6"]),
-    ("DF 2025-02-26 356k Wash", &["78021bd895f2f70ce56670d3b1d53ab1ec46abebb86e36d3aa8e27242e3bc8c4"]),
-    // 2025-03
-    ("DF 2025-03-12 391k Wash", &["056941e12ba0e21c7aa1c7048652a5337dbf93860864c0eea049614a09de2fed"]),
-    ("DF 2025-03-27 466k Wash 2", &["3decd559162a51e9e9699a46373fffb17c2cf5bbf47b408206ca16571e3f58a6"]),
+    (
+        "DF Wash",
+        &[
+            "02e33528003088a84a1493fdf8fd84b37c7eebcf57316d39bb9f4f3b49d85ec0",
+            "0485704bcf8395fdf0bcb516af21e4d8aeed6e01636127391725699b65f0cfcf",
+            "056941e12ba0e21c7aa1c7048652a5337dbf93860864c0eea049614a09de2fed",
+            "0e46428cc7e11cdea82f17d6d2c006e4f272d8411c5beae620ba96e907b85657",
+            "0ea09c3a35507ec7da41488fd8c339e194105c0d31a40f7da635ced69f0e1aa9",
+            "12afc2c709df25871c3d46fffac291e7f8c212d2bcb6a0f6b7f7bcdd61499cd1",
+            "1ef1687c2394905c539e153ad7db709899bf31503ce111ea23ff8002fc1389f1",
+            "24300cb0ded4823934d84e4b481bc5367d644a75c3c928dcee51187b2aa32b4c",
+            "27793bafb9619102bda34eb6d4731a7c714ff6947bb44e7f08f877ecaf3ae3bb",
+            "3decd559162a51e9e9699a46373fffb17c2cf5bbf47b408206ca16571e3f58a6",
+            "4db822d84841dd15e68ba488c8e59cbd58b6aec156dadb430c83bf7a826592f1",
+            "559391c77bc26aef32805282099bc4776b1b3ea21a24357b25b8886bb01a9db4",
+            "5d5e8bdc51e94f703f98892fd168c8db49711064846e547294efc0ea7bf87699",
+            "5ee7469fc50152d6c00557acc61c9229a0ae8c720113b038cc27ca7e2d9049b6",
+            "62f66f1eda3a1bb0c0223ec6c95d5216a61bad91d74a552502cbf8e6607d9794",
+            "6dbbb77d998fc9d8460603ee5496fd4c05eb11d9d89f2cf434c43bc2984c5001",
+            "6f243fcd8e90afaf032132a1181de53a38e226258650b4c8283ded31c7f8ceee",
+            "7b7599ec24d0a68790cc61e99c929bb0c69f8e5264ddf972786d7f197d681377",
+            "76213b6afeae8c53f3b52d9f1944deb2b70b42d076d7732aad8a34ebd547e546",
+            "78021bd895f2f70ce56670d3b1d53ab1ec46abebb86e36d3aa8e27242e3bc8c4",
+            "87c763cd2d60e3828f78aea0a5e4e7f998ecc01ed0796c1b52f959cb7329e7c0",
+            "927e7c89a1cf8b7fe83160ecd27589da1d7907a91d2b549f39d28304937b3baa",
+            "97d89567701c71f2964efb7ae05ce8979f35b0f50347587cbf411e64084cccd9",
+            "a9184dd1c39094257a072f828d8a1edb86fac5f2a8317b5fbf6050fa6d4995d2",
+            "b4702f900d1df7b2dacf7c985e712adde7e56a5441b685a8ef690df9508a73c7",
+            "c4c4a60dae070437f1ff0106a007f59862818b6299463092597af335ddb82133",
+            "c75bc036fcad8ca4c9cfaaeeb307dfb49270afc6bcb1508752bcdf313b9ee11e",
+            "d31297042983582a094baafe9b83d7205959de2f9c429378bda7815923aad63b",
+            "d4bb05ad677d141296dadec69c31d406d1200ed4766e7ddfdcabd5b45739cd16",
+            "db597db1cecbfe54450fa0be67c2d645ceac2212db05c728858b146961f49ea3",
+            "eb5e64453a936e6eb34a728f4d72c5e3cd83a44ce832cd8d8ba551b87bde1099",
+            "f12b4d07269097a34fee893ed751673f79456941a541a50b2b54e7215a8a38eb",
+            "f5d9051f7cb5ab32e54d471063c110aeca59b13e927e324613874fa124d82476",
+        ],
+    ),
     //
     // Scams
     //
     ("CigDAO", &["onxlw-tiaaa-aaaan-qedoq-cai"]),
     ("CLOWN Rugger", &["ubojc-qnw5m-ty4f7-svlu2-hrkqo-ctqld-5jv75-222sn-ezjla-lamyt-xae"]),
     ("FomoWell/ICPEx Bitget Wallet", &["f0aa2c07a00e46e1f68199fd985e3db919940454a75d49d443bbb34bdefa3442"]),
-    ("Yuku MEXC Wallet", &["fa5112a4d94b725aee705f1a8c65021fe69142e6717e60a9daa98f5d8218bd0f"]),
-    ("Yuku Binance Wallet", &["2d6a4470704440c1c3baacdfa9c8bee9fc6e3ae9aa665dfc4943157ca69cac38"]),
-    ("Yuku Scam 'The Key'", &["hixho-gysjl-vlky6-tjf2u-xb7nx-rgjfx-h32gc-nvsy3-mio64-4amgy-mqe"]),
+    (
+        "Yuku Hack",
+        &[
+            "fa5112a4d94b725aee705f1a8c65021fe69142e6717e60a9daa98f5d8218bd0f",
+            "2d6a4470704440c1c3baacdfa9c8bee9fc6e3ae9aa665dfc4943157ca69cac38",
+            "hixho-gysjl-vlky6-tjf2u-xb7nx-rgjfx-h32gc-nvsy3-mio64-4amgy-mqe",
+        ],
+    ),
 ];
