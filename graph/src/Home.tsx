@@ -74,8 +74,17 @@ export default function Home() {
     const handleNodeClick = (node: GraphNode) => {
       console.log("Node clicked:", node);
       setSelectedNode(node);
+      const title: string = `${node.label} ${node.group}`;
       const message : string[] = [];
-      
+      message.push("Accounts:");
+      message.push(node.id);
+      console.log(node.extra_info);
+      if (node.extra_info && node.extra_info.extra_accounts && node.extra_info.extra_accounts.length > 0) {
+        for (let acc of node.extra_info.extra_accounts) {
+          message.push(acc);
+        }
+      }
+      console.log(title);
       if (node.mainAccounts && node.mainAccounts.length > 0) {
         message.push("Connected Accounts:");
         message.push(`${node.mainAccounts.join("    ")}`);
@@ -88,7 +97,7 @@ export default function Home() {
         message.push(`Average ICP amount: ${node.extra_info.average_amount}`);
       }
       updateToast({
-        title: `${node.label} ${node.group}  ${node.id}`,
+        title: title,
         message: message
       });
     };
