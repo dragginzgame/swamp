@@ -175,11 +175,13 @@ fn get_entries() -> Vec<AccountData> {
     entries.extend(SNSES.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Sns)));
     entries.extend(SNS_PARTICIPANTS.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::SnsParticipant)));
     entries.extend(SUSPECTS.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Suspect)));
+
+    // unnamed
+    entries.extend(FOUNDATION.iter().map(|addr| AccountData::new(&addr[..5], &[addr], Type::Foundation)));
     entries.extend(SPAMMERS.iter().map(|addr| AccountData::new(&addr[..5], &[addr], Type::Spammer)));
 
     // multiple
     entries.extend(CEXES.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Cex)));
-    entries.extend(FOUNDATION.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Foundation)));
 
     validate_entries(&entries);
 
