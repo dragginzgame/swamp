@@ -252,8 +252,6 @@ const Graph: React.FC<GraphProps> = ({
                 return "salmon";
             case "Sns":
                 return "purple";
-            case "SnsParticipant":
-                return "cyan";
             case "Suspect":
                 return "orange";
             default:

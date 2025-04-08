@@ -20,7 +20,6 @@ export default function Home() {
             "nodeprovider",
             "spammer",
             "sns",
-            "snsparticipant",
             "suspect"
           ];
           const fetchPromises = categories.map((cat) =>
