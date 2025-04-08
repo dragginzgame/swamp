@@ -42,7 +42,8 @@ export interface AccountData {
   export interface GraphLink extends SimulationLinkDatum<GraphNode> {
     source: string; // account "from"
     target: string; // account "to"
-    direction?: string;
+    direction?: Direction;
+    connectors?: string[];
   }
 
 
