@@ -512,7 +512,6 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     ("DF 2023-11-17 266k Wash", "62f66f1eda3a1bb0c0223ec6c95d5216a61bad91d74a552502cbf8e6607d9794"),
     // 2023-12
     ("DF 2023-12-05 134k Wash", "f5d9051f7cb5ab32e54d471063c110aeca59b13e927e324613874fa124d82476"),
-    ("DF 2023-12-14 170k Wash", "db597db1cecbfe54450fa0be67c2d645ceac2212db05c728858b146961f49ea3"),
     ("DF 2023-12-28 219k Wash", "d4bb05ad677d141296dadec69c31d406d1200ed4766e7ddfdcabd5b45739cd16"),
     // 2024-08
     ("DF 2024-08-08 513k Wash", "0ea09c3a35507ec7da41488fd8c339e194105c0d31a40f7da635ced69f0e1aa9"),
