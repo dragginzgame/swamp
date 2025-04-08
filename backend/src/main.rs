@@ -2,15 +2,13 @@ pub mod addresses;
 pub mod helper;
 pub mod transactions;
 
-use addresses::{CEXES, DEFI, FOUNDATION, IDENTIFIED, NODE_PROVIDERS, SNSES, SNS_PARTICIPANTS, SPAMMERS, SUSPECTS};
+use addresses::{CEXES, DEFI, FOUNDATION, IDENTIFIED, NODE_PROVIDERS, SNSES, SPAMMERS, SUSPECTS};
 use candid::Principal;
+use derive_more::Display;
 use helper::principal_to_account_id;
 use ic_agent::Agent;
 use serde::{Deserialize, Serialize};
-use std::{
-    collections::{HashMap, HashSet},
-    fmt,
-};
+use std::collections::{HashMap, HashSet};
 
 use thiserror::Error as ThisError;
 use tokio::time::{sleep, Duration};
@@ -66,7 +64,7 @@ impl AccountData {
 /// AccountType
 ///
 
-#[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
+#[derive(Debug, Serialize, Deserialize, Clone, Display, PartialEq)]
 pub enum Type {
     Cex,
     Defi,
@@ -75,25 +73,7 @@ pub enum Type {
     NodeProvider,
     Spammer,
     Sns,
-    SnsParticipant,
     Suspect,
-}
-
-impl fmt::Display for Type {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let s = match self {
-            Type::Cex => "Cex",
-            Type::Defi => "Defi",
-            Type::Foundation => "Foundation",
-            Type::Identified => "Identified",
-            Type::NodeProvider => "NodeProvider",
-            Type::Spammer => "Spammer",
-            Type::Sns => "Sns",
-            Type::SnsParticipant => "SnsParticipant",
-            Type::Suspect => "Suspect",
-        };
-        write!(f, "{}", s)
-    }
 }
 
 async fn fetch_with_retry(
@@ -173,7 +153,6 @@ fn get_entries() -> Vec<AccountData> {
     entries.extend(IDENTIFIED.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Identified)));
     entries.extend(NODE_PROVIDERS.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::NodeProvider)));
     entries.extend(SNSES.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Sns)));
-    entries.extend(SNS_PARTICIPANTS.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::SnsParticipant)));
     entries.extend(SUSPECTS.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Suspect)));
 
     // unnamed
