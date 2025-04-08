@@ -35,7 +35,7 @@ export const ToastProvider = ({ children }: { children: ReactNode }) => {
 };
 
 
-export function ToastMessage({ toastData  }: ToastMessageProps) {
+export function ToastMessage({ toastData }: ToastMessageProps) {
   useEffect(() => {
     const toastEl = document.getElementById("liveToast");
     if (toastEl) {
@@ -49,6 +49,7 @@ export function ToastMessage({ toastData  }: ToastMessageProps) {
   }, [toastData]);
 
   if (!toastData) return null;
+  console.log(toastData);
   return (
     <div className="toast-container position-fixed top-0 end-0 p-3 ">
       <div id="liveToast" className="toast toast-border-color" role="alert" aria-live="assertive" aria-atomic="true" style={{ minWidth: "35vw" }}>
@@ -62,13 +63,38 @@ export function ToastMessage({ toastData  }: ToastMessageProps) {
           ></button>
         </div>
         <div className="toast-body">
-        {toastData.message.map((message, index) => {
-         const keywords = ["Connected Accounts:", "Node Info"];
-         const style = keywords.some(keyword => message.includes(keyword))
-           ? { fontWeight: "bold", color: "cyan" }
-           : {};
-          return <p key={index} style={style}>{message}</p>;
-        })}
+        {(() => {
+  const keywords = ["Connected Accounts:", "Node Info:"];
+  let useSmall = false;
+
+  return toastData.message.map((message, index) => {
+    if (message === "Accounts:") {
+      useSmall = true;
+      return (
+        <p key={index} style={{ fontWeight: "bold", color: "cyan" }}>
+          {message}
+        </p>
+      );
+    }
+
+    if (keywords.some(keyword => message.includes(keyword))) {
+      useSmall = false;
+      return (
+        <p key={index} style={{ fontWeight: "bold", color: "cyan" }}>
+          {message}
+        </p>
+      );
+    }
+
+    return useSmall ? (
+      <small key={index} style={{ display: "block" }}>
+        {message}
+      </small>
+    ) : (
+      <p key={index}>{message}</p>
+    );
+  });
+})()}
         </div>
       </div>
     </div>

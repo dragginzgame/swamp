@@ -43,6 +43,7 @@ export function buildGraph(data: AccountData[]): {
           tx_count: acc.transactions.length,
           start_date: new Date(newTxs[0].timestamp / 1_000_000).toLocaleString("en-GB"),
           end_date: new Date(newTxs[newTxs.length - 1].timestamp / 1_000_000).toLocaleString("en-GB"),
+          extra_accounts: acc.extra_accounts
         };
       }
       nodeMap.set(acc.account, {
