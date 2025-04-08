@@ -417,6 +417,7 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     ("1.4m ICP", "ecedd9b3595d88667b78315da6af8e0de29164ef718f96930e0459017d5d8a04"),
     ("715k ICP", "46305b0d46d5bbf88ccf6a85c92f8f44171c50f1589ad8594ab9e4f183e18f0e"),
     ("291k ICP", "c51cc8d8bad270b4be891db7655b611cda662160d2c40b9977033421916b997a"),
+    ("215k ICP", "341230e7d06704addb4641c2426f1b19d9d05896ab9c1bec508a4dc9fa1e4911"),
     //
     // Bots
     //
@@ -496,6 +497,7 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     // Connectors
     ("DF Connector", "dddc8a930f16c8ebecc84357bae7bb8127019dee72e48eeef6ed7db74a50dac3"),
     ("DF Connector", "767f442edfb5b102d3e391176c4e8490b6f94e15b63fd58423d1f97cb1d1f413"),
+    ("DF Connector", "d9298b44c3d0fed9177033b54007a25d06ad7f3e0f122ce5d6aef5c8bb4d5fa6"),
     // Txs
     ("DF 2024-12-13 276k Dep 1", "709a837a82e4dbe2279c4f7eb72965f1ca59a3a602870ed632333a7479ed4867"),
     ("DF 2024-12-13 105k Wd", "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"),
@@ -511,6 +513,7 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     // 2023-12
     ("DF 2023-12-05 134k Wash", "f5d9051f7cb5ab32e54d471063c110aeca59b13e927e324613874fa124d82476"),
     ("DF 2023-12-14 170k Wash", "db597db1cecbfe54450fa0be67c2d645ceac2212db05c728858b146961f49ea3"),
+    ("DF 2023-12-28 219k Wash", "d4bb05ad677d141296dadec69c31d406d1200ed4766e7ddfdcabd5b45739cd16"),
     // 2024-08
     ("DF 2024-08-08 513k Wash", "0ea09c3a35507ec7da41488fd8c339e194105c0d31a40f7da635ced69f0e1aa9"),
     // 2024-09
@@ -527,6 +530,7 @@ pub const SUSPECTS: &[(&str, &str)] = &[
     // 2024-12
     ("DF 2024-12-02 276k Wash", "4db822d84841dd15e68ba488c8e59cbd58b6aec156dadb430c83bf7a826592f1"),
     ("DF 2024-12-13 276k Wash", "6dbbb77d998fc9d8460603ee5496fd4c05eb11d9d89f2cf434c43bc2984c5001"),
+    ("DF 2024-12-14 170k Wash", "db597db1cecbfe54450fa0be67c2d645ceac2212db05c728858b146961f49ea3"),
     // 2025-01
     ("DF 2025-01-13 245k Wash", "24300cb0ded4823934d84e4b481bc5367d644a75c3c928dcee51187b2aa32b4c"),
     ("DF 2025-01-13 245k Wash", "87c763cd2d60e3828f78aea0a5e4e7f998ecc01ed0796c1b52f959cb7329e7c0"),
