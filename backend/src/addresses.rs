@@ -38,7 +38,8 @@ pub const CEXES: &[(&str, &[&str])] = &[
         ],
     ),
     ("MEXC", &["9e62737aab36f0baffc1faac9edd92a99279723eb3feb2e916fa99bb7fe54b59"]),
-    ("Mystery OTC (DF / a16z)", &["ee5a229b0584939b880ffd446f2f8ae25252706d78298f20efe4a74665206554"]),
+    ("Mystery OTC 1 (DF / a16z)", &["ee5a229b0584939b880ffd446f2f8ae25252706d78298f20efe4a74665206554"]),
+    ("Mystery OTC 1 (Foundation)", &["62dd39780d34f2dc21eb680f99962659a6a0c2ccd9c68ec365962ae0eaf293f0"]),
     (
         "OKX 1",
         &[
@@ -666,7 +667,7 @@ pub const SPAMMERS: &[&str] = &[
     // 5
     "55fc3053d6d86d07114e8f3eb7048da165625e2c6a223d46e6cd79f7b9160925",
     // 6
-    "62dd39780d34f2dc21eb680f99962659a6a0c2ccd9c68ec365962ae0eaf293f0",
+    "62dd6e99d50973c37e6457546f21d46d235844e658cbfecc5bddfbd911fb93f0",
     "63c2e09c88e9cbe14c7ce21e6ef26b894bad9738c4e44602b280069a8bf44698",
     "65b6f95407f538811dfc2f7d29be4abd369023229278481c4594406091033a6d",
     "68cce2636ec1e0134f24596a599ba496ad304ce77d890817307294b2ce6bbd82",
