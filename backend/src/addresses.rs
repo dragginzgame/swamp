@@ -115,6 +115,7 @@ pub const FOUNDATION: &[(&str, &[&str])] = &[
 ];
 
 pub const IDENTIFIED: &[(&str, &str)] = &[
+    ("Alex Lorimer", "33mql-r6bnm-7mzbp-gqvmp-iv6qr-5j3pw-tnwsf-f2az7-zppun-yb4lf-zae"),
     ("Austin Fatheree", "83a06afc3e0707f633ae839c1e4f756846a13c6bf1d005499a7f50725cf9f8db"),
     ("a16z Confirmed", "cbada211a17812ec0fb21df6f6261c1346435a04fc14e7e22fae9887479ad19a"),
     ("borovan", "ljxsi-5du4w-3se32-vba6v-dd543-rrj3g-nayx2-f7xhd-o4u7a-ycmxw-bae"),
@@ -124,9 +125,14 @@ pub const IDENTIFIED: &[(&str, &str)] = &[
     ("Gavin H", "7cfaeaa0e14ce862636f052ff307511032e030a3028ead7614f7fc0905c1de41"),
     ("Gian", "aeefae5ddac8f4d8867682749b2d463261a6c36931986372e619dae748be3948"),
     ("Gian Bity", "9c280844cb592d9c47407be0bc58e3408f7860ad8b481f88b8933099987fe8c7"),
+    ("Isaac Valadez", "ylw3l-r67m3-p3llx-z4ffv-ljnpq-go37c-tsifk-5eewu-jslcg-6c4in-oae"),
+    ("Jerry Banfield", "n4235-f5fjz-yeaax-xfbrm-4eoo2-6moqq-yzoya-nnefz-4ky7n-5ajgb-dqe"),
     ("Johannes Kriel", "2rjjb-gy24i-ghulj-zfsn6-cf6ju-6rrkc-osdlt-uxuhc-ibhmb-wvh2v-yae"),
     ("jrnhz", "jrnhz-6ekxv-2fffs-wfcgt-l3pe7-456id-heznf-xyf64-nykjq-4jyso-zae"),
+    ("Kyle Stofflet (ICP CC)", "gzgcb-ecvht-7cxc6-nsh53-wnbkm-dovc6-cu5fb-7rt4y-25vql-omwzc-6ae"),
+    ("Mr. Sneed", "ok64y-uiaaa-aaaag-qdcbq-cai"),
     ("Paul Kohlhaas", "fhab4-gziwu-ywv6p-4q4uj-zhhbm-ghspz-dkwsd-fiqy"),
+    ("Seb Thuiller", "7xwba-dqufj-jjl52-ql4vc-m4xvu-6a6y5-ryyfp-nhwxz-lu6gb-inchy-pae"),
     ("Toniq Royalty", "c7e461041c0c5800a56b64bb7cefc247abc0bbbb99bd46ff71c64e92d9f5c2f9"),
     ("Utkarsh Goyal", "wwyo5-vrahh-jwa74-3m6kj-jqbia-jbebm-7vtyd-uvqem-wk3zw-djpci-vqe"),
 ];
@@ -669,6 +675,7 @@ pub const SPAMMERS: &[&str] = &[
     // 1
     "10f506e5a124ad80c00bf44e518afdb48a138320e2f420aa9f6b61dd775bae7f",
     "11dbf59e2981ebe635457e5716124817bdbea35ead5e97299449b01a009d3279",
+    "12a22742e120fc4662ab266265f72f4a4f36d06d861a6404cb8e7cfe1eb432e1",
     "1586196dc4f02c1830d8fc83514159f04a0694ef565e8ca0c131f67bb9fa61fa",
     "1601cf7be4b10ef2c8de0266ee0585c9a27dd9f5e66215950de4100331eb0e3a",
     "17819332729e1c508fc8afa23a0eecaecb7e6ebc720261954f1183bcbb6ac64f",
@@ -678,13 +685,16 @@ pub const SPAMMERS: &[&str] = &[
     "21175e5b858f7db741e7ceed3f80fcdc4747844c59065fb81677188bf9f91c37",
     "240b61ca4ca044c8660b301f0488fc1c05ff4f1c15a28045054c2a10b3e6ba99",
     "26a823b324f57d7f9a351987ba0cabf322c724aa6c3a0004334eb50c88493004",
+    "26dbfae8b7a323851bc32a86fe59529efb96dbfacaffdab23de343a42f332daa",
     "27e1ea500693e71639040cae3bd6090b4d74c284858c8846d51bd39e6cd02474",
     "2b041fc28c06df2581dcb1bd0a00595aa586f0f1460af6a8cc440d2b19cb6a59",
     "2e5f3b5c339440d4c66552f4b2b6d104f9995f8a08994b8a4b297bc81d8930de",
     // 3
     "30717bd6df3de288fe50fd190e81a00be2b8c7f6109ee8468a6fb4ace708f047",
+    "3027879288cdb64054a88e675cc8b07a8eddbb82148923553bbd44a77d93698c",
     "3a6ab7a8d5f756dd73c3ee0b957998c33e80ebc1c263f0e1f447c744f59291de",
     "3d0e91b202078231dd12f91c0e6d37a4907e6f322bee6133a870e6a77408a875",
+    "3e0dd56f9b09c8b1f812d89f8103cb8b1a4b34fd53c1992e6c81e40cbf64799f",
     "3e95cd3b6d2b272505181a67b53212f9bff6c6a28fbb978e08a129fb5e624e06",
     "3fe6e3694a8956405e95882b04695e1703921d27f272635d631aca9d828b8cf1",
     // 4
@@ -707,11 +717,13 @@ pub const SPAMMERS: &[&str] = &[
     "68cce2636ec1e0134f24596a599ba496ad304ce77d890817307294b2ce6bbd82",
     "6960df68b3031afda956bb973664c510b1f68ec485b59a58b3b1ff47548a7561",
     "6b790516f0fbb57d50a01e325005fe1514c6bade8741799fceb9d7fb1f4ec610",
+    "6a67761a118557dc28b236a5afbe516821ef8e5507f431e595440d1def1cc32f",
     "6c142db7a840639e85442815936ce3f4e2a3415f6265cdb012f511330af711d3",
     "6e5db62ddce5acb2a9bdca547454e362121f554c4b40b56ddbc95c43749b66ad",
     // 7
     "70973d8fa2197cc3258860bc6e59fafe526029a05a745a16c222800a9f344051",
     "76406255d7501c933769159c46f0eb1cc8854d1cc60b71cd37b1aec59eec00b4",
+    "783cbaddd7b2bf6603d41952cd62b8a41de9082227d2bd49000efb759e10cf02",
     "7ccd68301431d97cc98c9054acf787690b70758b949d6c4367f23c9d674d2b7e",
     "7fc9f70a69a1f8ed79a803e4cc9e651b38c7576ceb04c23a62146f1c3774e999",
     // 8
@@ -722,6 +734,7 @@ pub const SPAMMERS: &[&str] = &[
     "8d5c3bca2cfcb1a527f8ee047aecc2d11c3fa4faf61aa17445f34dc9c2aeb3da",
     // 9
     "930b4eab708af98a0e5dc64f8e79232337a1c1bb1ed8b4cab59be00aabb876d9",
+    "95a359b1a308e6c8a2ff0cfa9da86ab7f509ef1d7bda1de38989fa088189a79e",
     "9e62dfd18216e3c0263d023dc85f14a5d3e58824221b49f9b625a4cb17994b59",
     "9ffa04307f7e018cee104fe667e0077e349178dd282a17b27508671a3de135a4",
     // a
@@ -747,6 +760,7 @@ pub const SPAMMERS: &[&str] = &[
     "cd845fc4844bcf50a687fa8b1c1e07371cd525b2e6d2c3530f82488aa0fb50f2",
     // d
     "d231070fddba87421c59bc0b12ebddc29af80bd1d43c72bef27e79bf3e1b1a3e",
+    "d24b527c716365b860ef1ce678fa14a93cf0ba4a26c2bcdf6a685f72d993330a",
     "d2e9199e8648ff3a212494f4a8062163206998d9b044557949289a4ef6a25a73",
     "d3446ab7119ae0c933d120fe89a68a992b7c13538bc56128d684e84fb40cf395",
     "d3bca4f3d7dd97ff749d067b88c7ea84b10cf3084b84d662ee0f77ee6421df49",
