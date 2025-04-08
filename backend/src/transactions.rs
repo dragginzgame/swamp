@@ -1,4 +1,5 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::HashSet;
+use tokio::time::{sleep, Duration};
 
 use crate::{
     helper::{is_valid_account_id, principal_to_account_id},
@@ -225,81 +226,6 @@ pub fn process_account_hex(hex: &str) -> (Option<String>, Option<String>, Option
     (orig_hex, None, None)
 }
 
-pub fn process_rewards_data(rewards_response: ListNodeProviderRewardsResponse) -> HashMap<String, ProviderRewardInfo> {
-    let mut result = HashMap::new();
-
-    for monthly_reward in rewards_response.rewards {
-        // Get XDR conversion rate
-        let xdr_rate = monthly_reward.xdr_conversion_rate.and_then(|rate| rate.xdr_permyriad_per_icp).unwrap_or(0)
-            as f64
-            / 10000.0; // Convert from permyriad to ratio
-
-        for reward in monthly_reward.rewards {
-            if let Some(node_provider) = reward.node_provider {
-                if let Some(id) = node_provider.id {
-                    let principal_id = id.to_text();
-
-                    // Get reward account hash
-                    let (reward_account_hex, reward_account_formatted, reward_account_dashboard_link) =
-                        if let Some(account) = &node_provider.reward_account {
-                            let hex = hex::encode(&account.hash);
-                            process_account_hex(&hex)
-                        } else if let Some(RewardMode::RewardToAccount(account)) = &reward.reward_mode {
-                            if let Some(acc) = &account.to_account {
-                                let hex = hex::encode(&acc.hash);
-                                process_account_hex(&hex)
-                            } else {
-                                (None, None, None)
-                            }
-                        } else {
-                            (None, None, None)
-                        };
-
-                    // Convert E8s to ICP then to XDR
-                    let reward_xdr =
-                        if xdr_rate > 0.0 { (reward.amount_e8s as f64 / 100_000_000.0) * xdr_rate } else { 0.0 };
-
-                    // Add or update reward info in the map
-                    result
-                        .entry(principal_id)
-                        .and_modify(|info: &mut ProviderRewardInfo| {
-                            // Update most recent info if this reward is newer
-                            if let Some(current_ts) = info.most_recent_timestamp {
-                                if monthly_reward.timestamp > current_ts {
-                                    info.most_recent_timestamp = Some(monthly_reward.timestamp);
-                                    info.most_recent_reward_e8s = Some(reward.amount_e8s);
-                                    info.most_recent_reward_xdr = Some(reward_xdr);
-
-                                    // Update reward account only if we have a new one
-                                    if reward_account_hex.is_some() {
-                                        info.reward_account_hex = reward_account_hex.clone();
-                                        info.reward_account_formatted = reward_account_formatted.clone();
-                                        info.reward_account_dashboard_link = reward_account_dashboard_link.clone();
-                                    }
-                                }
-                            }
-                        })
-                        .or_insert_with(|| ProviderRewardInfo {
-                            reward_account_hex: reward_account_hex.clone(),
-                            reward_account_formatted: reward_account_formatted.clone(),
-                            reward_account_dashboard_link: reward_account_dashboard_link.clone(),
-                            most_recent_reward_e8s: Some(reward.amount_e8s),
-                            most_recent_reward_xdr: Some(reward_xdr),
-                            most_recent_timestamp: Some(monthly_reward.timestamp),
-                            first_mint_timestamp: None,
-                            last_mint_timestamp: None,
-                            mint_transaction_count: None,
-                            total_mint_rewards_e8s: None,
-                            total_mint_rewards_icp: None,
-                        });
-                }
-            }
-        }
-    }
-
-    result
-}
-
 pub async fn fetch_nodes_rewards(agent: &Agent) -> Result<ListNodeProviderRewardsResponse, Box<dyn std::error::Error>> {
     let request = ListNodeProviderRewardsRequest { date_filter: None };
 
@@ -351,9 +277,32 @@ fn get_operation_type(op: &Operation) -> &str {
     }
 }
 
+pub async fn fetch_with_retry(
+    account: AccountData,
+    agent: &Agent,
+    max_retries: usize,
+) -> Result<AccountTransactionsJson, Box<dyn std::error::Error>> {
+    let mut attempts = 0;
+    loop {
+        match fetch_transactions(&account, agent).await {
+            Ok(result) => return Ok(result),
+            Err(e) => {
+                attempts += 1;
+                if attempts >= max_retries {
+                    return Err(e);
+                }
+                println!(
+                    "Error fetching account transactions for {}: {}. Retrying {}/{}...",
+                    account.name, e, attempts, max_retries
+                );
+                sleep(Duration::from_secs(10)).await;
+            }
+        }
+    }
+}
+
 pub async fn fetch_transactions(
     account_data: &AccountData,
-    rewards_by_principal: &HashMap<String, ProviderRewardInfo>,
     agent: &Agent,
 ) -> Result<AccountTransactionsJson, Box<dyn std::error::Error>> {
     let principal = Principal::from_text(INDEX_CANISTER_ID)?;
@@ -409,42 +358,6 @@ pub async fn fetch_transactions(
             GetAccountIdentifierTransactionsResult::Err(err) => {
                 println!("Error from canister for {}: {}", account_identifier, err.message);
                 continue;
-            }
-        }
-    }
-
-    for principal_val in &account_data.principals {
-        let principal_str = Principal::to_string(principal_val);
-        if let Some(reward_info) = rewards_by_principal.get(&principal_str) {
-            if let Some(extra_acc) = &reward_info.reward_account_formatted {
-                if !identifiers.contains(extra_acc) && !extra_accounts.contains(extra_acc) {
-                    println!("Fetching txs for reward account {}", extra_acc);
-
-                    let request = GetAccountTransactionsArgs {
-                        max_results: 10000,
-                        start: None,
-                        account_identifier: extra_acc.clone(),
-                    };
-
-                    let args = Encode!(&request)?;
-                    let response_bytes =
-                        agent.query(&principal, "get_account_identifier_transactions").with_arg(args).call().await?;
-
-                    let result = Decode!(response_bytes.as_slice(), GetAccountIdentifierTransactionsResult)?;
-
-                    match result {
-                        GetAccountIdentifierTransactionsResult::Ok(resp) => {
-                            extra_accounts.push(extra_acc.clone());
-                            if oldest_tx_id.is_none() || resp.oldest_tx_id < oldest_tx_id {
-                                oldest_tx_id = resp.oldest_tx_id;
-                            }
-                            all_transactions.extend(resp.transactions);
-                        }
-                        GetAccountIdentifierTransactionsResult::Err(err) => {
-                            eprintln!("Error fetching reward account {}: {}", extra_acc, err.message);
-                        }
-                    }
-                }
             }
         }
     }

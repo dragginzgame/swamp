@@ -9,12 +9,9 @@ use helper::principal_to_account_id;
 use ic_agent::Agent;
 use serde::{Deserialize, Serialize};
 use std::collections::{HashMap, HashSet};
+use transactions::fetch_with_retry;
 
 use thiserror::Error as ThisError;
-use tokio::time::{sleep, Duration};
-use transactions::{
-    fetch_nodes_rewards, fetch_transactions, process_rewards_data, AccountTransactionsJson, ProviderRewardInfo,
-};
 
 const IC_URL: &str = "https://ic0.app";
 
@@ -76,31 +73,6 @@ pub enum Type {
     Suspect,
 }
 
-async fn fetch_with_retry(
-    account: AccountData,
-    rewards_by_principal: HashMap<String, ProviderRewardInfo>,
-    agent: &Agent,
-    max_retries: usize,
-) -> Result<AccountTransactionsJson, Box<dyn std::error::Error>> {
-    let mut attempts = 0;
-    loop {
-        match fetch_transactions(&account, &rewards_by_principal, agent).await {
-            Ok(result) => return Ok(result),
-            Err(e) => {
-                attempts += 1;
-                if attempts >= max_retries {
-                    return Err(e);
-                }
-                println!(
-                    "Error fetching account transactions for {}: {}. Retrying {}/{}...",
-                    account.name, e, attempts, max_retries
-                );
-                sleep(Duration::from_secs(10)).await;
-            }
-        }
-    }
-}
-
 //
 // main
 //
@@ -122,14 +94,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         groups.entry(category).or_default().push(entry);
     }
 
-    let rewards = fetch_nodes_rewards(&agent).await?;
-    let rewards_by_principal = process_rewards_data(rewards);
-
     // For each category, fetch transactions and write a JSON file
     for (category, accounts) in groups {
         let mut results = Vec::new();
         for account in accounts {
-            match fetch_with_retry(account, rewards_by_principal.clone(), &agent, 3).await {
+            match fetch_with_retry(account, &agent, 3).await {
                 Ok(account_tx) => results.push(account_tx),
                 Err(e) => eprintln!("Error fetching account transactions for {}: {}", category, e),
             }
@@ -151,7 +120,6 @@ fn get_entries() -> Vec<AccountData> {
     // single
     entries.extend(DEFI.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Defi)));
     entries.extend(IDENTIFIED.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Identified)));
-    entries.extend(NODE_PROVIDERS.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::NodeProvider)));
     entries.extend(SNSES.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Sns)));
     entries.extend(SUSPECTS.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Suspect)));
 
@@ -159,8 +127,9 @@ fn get_entries() -> Vec<AccountData> {
     entries.extend(SPAMMERS.iter().map(|addr| AccountData::new(&addr[..5], &[addr], Type::Spammer)));
 
     // multiple
-    entries.extend(FOUNDATION.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Foundation)));
     entries.extend(CEXES.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Cex)));
+    entries.extend(FOUNDATION.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Foundation)));
+    entries.extend(NODE_PROVIDERS.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::NodeProvider)));
 
     validate_entries(&entries);
 
