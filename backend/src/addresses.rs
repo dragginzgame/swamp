@@ -15,16 +15,11 @@ pub const CEXES: &[(&str, &[&str])] = &[
         "Coinbase",
         &[
             "449ce7ad1298e2ed2781ed379aba25efc2748d14c60ede190ad7621724b9e8b2",
-            "4dfa940def17f1427ae47378c440f10185867677109a02bc8374fc25b9dee8af",
-            "dd15f3040edab88d2e277f9d2fa5cc11616ebf1442279092e37924ab7cce8a74",
-        ],
-    ),
-    (
-        "Coinbase (Inactive 2021)",
-        &[
-            "a6ed987d89796f921c8a49d275ec7c9aa04e75a8fc8cd2dbaa5da799f0215ab0",
-            "660b1680dafeedaa68c1f1f4cf8af42ed1dfb8564646efe935a2b9a48528b605",
             "4878d23a09b554157b31323004e1cc053567671426ca4eec7b7e835db607b965",
+            "4dfa940def17f1427ae47378c440f10185867677109a02bc8374fc25b9dee8af",
+            "660b1680dafeedaa68c1f1f4cf8af42ed1dfb8564646efe935a2b9a48528b605",
+            "a6ed987d89796f921c8a49d275ec7c9aa04e75a8fc8cd2dbaa5da799f0215ab0",
+            "dd15f3040edab88d2e277f9d2fa5cc11616ebf1442279092e37924ab7cce8a74",
         ],
     ),
     ("Gate.io", &["8fe706db7b08f957a15199e07761039a7718937aabcc0fe48bc380a4daf9afb0"]),
