@@ -794,7 +794,6 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     ("715k ICP", &["46305b0d46d5bbf88ccf6a85c92f8f44171c50f1589ad8594ab9e4f183e18f0e"]),
     ("293k ICP", &["55d6c8c9bf841d721785e422130a385f13e71d8b5431c65b8be6d2b3a03d0c28"]),
     ("291k ICP", &["c51cc8d8bad270b4be891db7655b611cda662160d2c40b9977033421916b997a"]),
-    ("241k ICP", &["c13e11c0768ad2ecaefc18a70e0d7bff5c4bc71cc1b5a5885d24bca19e8ecc78"]),
     ("215k ICP", &["341230e7d06704addb4641c2426f1b19d9d05896ab9c1bec508a4dc9fa1e4911"]),
     //
     // Bots
