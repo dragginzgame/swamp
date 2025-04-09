@@ -86,7 +86,6 @@ export default function Home() {
         message.push(acc);
       }
     }
-    console.log(title);
     if (node.mainAccounts && node.mainAccounts.length > 0) {
       message.push("Connected Accounts:");
       message.push(`${node.mainAccounts.join("    ")}`);
@@ -98,6 +97,24 @@ export default function Home() {
       message.push(`End date: ${node.extra_info.end_date}`);
       message.push(`Average ICP amount: ${node.extra_info.average_amount}`);
     }
+    updateToast({
+      title: title,
+      message: message
+    });
+  };
+
+  const handleLinkClick = (data: any) => {
+    console.log("link clicked:", data);
+    const title: string = `Connector Nodes:`;
+    const message: string[] = [];
+    if (Array.isArray(data) && data.length > 0) {
+      for (let i = 0; i < data.length; i++) {
+        const nodeId = data[i];
+        message.push(nodeId);
+      }
+    }
+    console.log(title);
+    console.log(message);
     updateToast({
       title: title,
       message: message
@@ -176,6 +193,7 @@ export default function Home() {
                     width={width} // adjust as needed
                     height={height}
                     onNodeClick={handleNodeClick}
+                    onLinkClick={handleLinkClick}
                     loading={loading}
                   />}
               </div>
