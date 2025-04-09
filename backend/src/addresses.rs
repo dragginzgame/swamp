@@ -126,14 +126,19 @@ pub const IDENTIFIED: &[(&str, &[&str])] = &[
         ],
     ),
     ("Austin Fatheree", &["83a06afc3e0707f633ae839c1e4f756846a13c6bf1d005499a7f50725cf9f8db"]),
-    ("a16z Confirmed", &["cbada211a17812ec0fb21df6f6261c1346435a04fc14e7e22fae9887479ad19a"]),
+    ("a16z", &["cbada211a17812ec0fb21df6f6261c1346435a04fc14e7e22fae9887479ad19a"]),
     ("borovan", &["ljxsi-5du4w-3se32-vba6v-dd543-rrj3g-nayx2-f7xhd-o4u7a-ycmxw-bae"]),
     ("Cartographer", &["0d6960e0d0c92bdd7dfdd7ca6c5472f1506344c49d8e8402513aa94fa5bd2bd0"]),
     ("CodeGov", &["5awin-45z56-xtcpr-6xlsj-j25mu-q5de7-2rzdj-5675c-mrikh-m5vpg-aqe"]),
     ("David the Gnome", &["aiuxi-qgbbo-2bls4-7ac4x-suec5-bo6mm-zq6yh-asr25-iug6d-s7csv-jae"]),
     ("Gavin H", &["7cfaeaa0e14ce862636f052ff307511032e030a3028ead7614f7fc0905c1de41"]),
-    ("Gian", &["aeefae5ddac8f4d8867682749b2d463261a6c36931986372e619dae748be3948"]),
-    ("Gian Bity", &["9c280844cb592d9c47407be0bc58e3408f7860ad8b481f88b8933099987fe8c7"]),
+    (
+        "Gian",
+        &[
+            "aeefae5ddac8f4d8867682749b2d463261a6c36931986372e619dae748be3948",
+            "9c280844cb592d9c47407be0bc58e3408f7860ad8b481f88b8933099987fe8c7",
+        ],
+    ),
     ("Isaac Valadez", &["ylw3l-r67m3-p3llx-z4ffv-ljnpq-go37c-tsifk-5eewu-jslcg-6c4in-oae"]),
     ("Jerry Banfield", &["n4235-f5fjz-yeaax-xfbrm-4eoo2-6moqq-yzoya-nnefz-4ky7n-5ajgb-dqe"]),
     ("Johannes Kriel", &["2rjjb-gy24i-ghulj-zfsn6-cf6ju-6rrkc-osdlt-uxuhc-ibhmb-wvh2v-yae"]),
@@ -841,7 +846,6 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     // Hackers
     //
     ("BIL Hacker", &["3axar-twhdo-biizl-yegt2-fatxq-go2ay-ib5ki-y6cmq-ziiav-vcn5x-mae"]),
-    ("BIL Hacker ckBTC Account", &["az453-x2sxf-wewfl-pszbd-4u4rh-yq7nk-hxkrp-6yvo3-mnlce-zjvsg-qae"]),
     ("BIL Weird", &["irb66-fu7u3-yqmka-yqzqw-s4hhi-xhnr4-565su-zxlap-nboyf-ojndk-iae"]),
     ("ufwij", &["ufwij-jggzv-owfkb-cs26m-p7j3y-awpqg-3oa33-x4ciu-vadlo-2jb7f-gae"]),
     (
