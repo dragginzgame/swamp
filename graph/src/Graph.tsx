@@ -11,7 +11,7 @@ import {
 } from "d3-force";
 import { D3DragEvent, drag } from "d3-drag";
 import { zoom, zoomIdentity } from "d3-zoom";
-import { GraphData, GraphNode } from "./types"; 
+import { GraphData, GraphNode } from "./types";
 import { ColorModeContext } from "./Layout";
 
 // Define a type for links.
@@ -25,8 +25,8 @@ interface GraphProps {
   width?: number;
   height?: number;
   onNodeClick?: (node: GraphNode) => void;
+  onLinkClick?: (data: any) => void;
   highlightNodeId?: string; // Node to highlight (by id)
-  theme?: string;
 }
 
 const Graph: React.FC<GraphProps> = ({
@@ -34,8 +34,8 @@ const Graph: React.FC<GraphProps> = ({
   width = 800,
   height = 600,
   onNodeClick,
+  onLinkClick,
   highlightNodeId,
-  theme,
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const zoomRef = useRef<any>(null);
@@ -50,16 +50,11 @@ const Graph: React.FC<GraphProps> = ({
 
   useEffect(() => {
     // console.log(colorMode);
-    const newFill =
-    colorMode === "dark"
-        ? "white"
-        : "black";
-        // console.log(newFill);
-        setTimeout(() => {
-            select(svgRef.current)
-              .selectAll(".labels text")
-              .attr("fill", newFill);
-          }, 0);
+    setTimeout(() => {
+      select(svgRef.current)
+        .selectAll(".labels text")
+        .attr("fill", ghostLabelColor);
+    }, 0);
   }, [colorMode]);
 
   useEffect(() => {
@@ -89,7 +84,7 @@ const Graph: React.FC<GraphProps> = ({
     zoomRef.current = zoomBehavior;
     svg.call(zoomBehavior);
 
-    // Define arrow marker for links.
+    // arrow marker for links.
     const defs = svg.append("defs");
     defs.append("marker")
       .attr("id", "arrowhead")
@@ -102,6 +97,48 @@ const Graph: React.FC<GraphProps> = ({
       .append("path")
       .attr("d", "M0,-5L10,0L0,5")
       .attr("fill", "#999");
+
+    // on hover a bigger orange arrow marker for links.
+    defs.append("marker")
+      .attr("id", "arrowhead-hover")
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", 75 * 0.6)
+      .attr("refY", 0)
+      .attr("markerWidth", 10) // Increased width.
+      .attr("markerHeight", 10) // Increased height.
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M0,-5L10,0L0,5")
+      .attr("fill", "orange");
+
+      defs.append("marker")
+      .attr("id", "connector-marker")
+      .attr("viewBox", "0 -5 10 10")
+      // Adjust refX to 3/4 of the original.
+      .attr("refX", 37.5)
+      .attr("refY", 0)
+      .attr("markerWidth", 11.25)
+      .attr("markerHeight", 11.25)
+      .attr("orient", "auto")
+      .append("path")
+      // New path: multiply each coordinate by 0.75.
+      .attr("d", "M7.5,0 L5.63,3.25 L1.88,3.25 L0,0 L1.88,-3.25 L5.63,-3.25 Z")
+      .attr("fill", "#fffb0069")
+      .attr("pointer-events", "all");
+
+
+      defs.append("marker")
+      .attr("id", "connector-marker-hover")
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", 37.5)
+      .attr("refY", 0)
+      .attr("markerWidth", 11.25)
+      .attr("markerHeight", 11.25)
+      .attr("orient", "auto")
+      .append("path")
+      .attr("d", "M7.5,0 L5.63,3.25 L1.88,3.25 L0,0 L1.88,-3.25 L5.63,-3.25 Z")
+      .attr("fill", "#39ff14")
+      .attr("pointer-events", "all");
 
     // Create force simulation.
     const simulation = forceSimulation(nodes)
@@ -123,107 +160,42 @@ const Graph: React.FC<GraphProps> = ({
       )
       .attr("stroke-opacity", 0.6)
       .attr("stroke-width", 1.5)
-      .attr("marker-end", "url(#arrowhead)")
+      .attr("marker-end", (d) =>
+        d.connectors && d.connectors.length > 0 ? "url(#connector-marker)" : "url(#arrowhead)"
+      )
       .on("click", (event, d) => {
         event.preventDefault();
         event.stopPropagation();
         event.stopImmediatePropagation();
-      
+
         // Remove any existing ghost nodes and labels.
         container.selectAll(".ghost-node").remove();
         container.selectAll(".ghost-label-group").remove();
-      
+
         // Check if the link has connector data.
         if (d.connectors && d.connectors.length > 0) {
-          // Ensure we have the source and target positions.
-          let sourceX: number | undefined,
-            sourceY: number | undefined,
-            targetX: number | undefined,
-            targetY: number | undefined;
-          if (typeof d.source !== "string") {
-            const sourceNode = d.source as GraphNode;
-            sourceX = sourceNode.x;
-            sourceY = sourceNode.y;
-          }
-          if (typeof d.target !== "string") {
-            const targetNode = d.target as GraphNode;
-            targetX = targetNode.x;
-            targetY = targetNode.y;
-          }
-      
-          if (
-            sourceX !== undefined &&
-            sourceY !== undefined &&
-            targetX !== undefined &&
-            targetY !== undefined
-          ) {
-            // Compute the midpoint between the source and target.
-            const midX = (sourceX + targetX) / 2;
-            const midY = (sourceY + targetY) / 2;
-            // Increased spacing between ghost nodes.
-            const spacing = 30;
-            // Center the ghost nodes around the midpoint if there are multiple.
-            const offsetBase = (d.connectors.length - 1) / 2;
-      
-            // Determine label color based on colorMode (assumed available in component scope)
-            const ghostLabelColor = colorMode === "dark" ? "white" : "black";
-            // Reverse the label color for the background.
-            const ghostLabelBgColor = ghostLabelColor === "white" ? "black" : "white";
-      
-            d.connectors.forEach((connectorId, i) => {
-              const ghostX = midX;
-              const ghostY = midY + (i - offsetBase) * spacing;
-              // Create the ghost node.
-              container
-                .append("circle")
-                .attr("class", "ghost-node")
-                .attr("cx", ghostX)
-                .attr("cy", ghostY)
-                .attr("r", 8)
-                .attr("fill", "red")
-                .attr("opacity", 0.6);
-      
-              // Create a group to hold both the label background and the label text.
-              const labelGroup = container
-                .append("g")
-                .attr("class", "ghost-label-group")
-                .attr("transform", `translate(${ghostX + 10}, ${ghostY})`);
-      
-              // Append the text element.
-              const textElem = labelGroup
-                .append("text")
-                .attr("class", "ghost-label")
-                .attr("font-size", "10px")
-                .attr("fill", ghostLabelColor)
-                .text(connectorId);
-      
-              // After the text is rendered, get its bounding box and insert a background rect.
-              const bbox = textElem.node()?.getBBox();
-              if (bbox) {
-                labelGroup
-                  .insert("rect", "text")
-                  .attr("x", bbox.x)
-                  .attr("y", bbox.y)
-                  .attr("width", bbox.width)
-                  .attr("height", bbox.height)
-                  .attr("fill", ghostLabelBgColor);
-              }
-            });
+          console.log(d.connectors);
+          if (onLinkClick) {
+            onLinkClick(d.connectors);
           }
         }
-      
-        // Add a one-time click handler to remove ghost nodes and labels when clicking outside.
-        svg.on(
-          "click",
-          () => {
-            container.selectAll(".ghost-node").remove();
-            container.selectAll(".ghost-label-group").remove();
-            svg.on("click", null);
-          },
-          { once: true }
-        );
+
+      })
+      .on("mouseover", function (event, d) {
+        if (d.connectors && d.connectors.length > 0) {
+          select(this).attr("marker-end", "url(#connector-marker-hover)");
+        } else {
+          select(this).attr("marker-end", "url(#arrowhead-hover)");
+        }
+      })
+      .on("mouseout", function (event, d) {
+        if (d.connectors && d.connectors.length > 0) {
+          select(this).attr("marker-end", "url(#connector-marker)");
+        } else {
+          select(this).attr("marker-end", "url(#arrowhead)");
+        }
       });
-      
+
     // Create node circles.
     const nodeSelection = container
       .append("g")
@@ -235,24 +207,24 @@ const Graph: React.FC<GraphProps> = ({
       .attr("r", 10)
       .attr("fill", (d) => {
         switch (d.group) {
-            case "Cex":
-                return "blue";
-            case "Defi":
-                return "lightblue";
-            case "Foundation":
-                return "yellow";
-            case "Identified":
-                return "green";
-            case "NodeProvider":
-                return "darkred";
-            case "Spammer":
-                return "salmon";
-            case "Sns":
-                return "purple";
-            case "Suspect":
-                return "orange";
-            default:
-                return "gray";
+          case "Cex":
+            return "blue";
+          case "Defi":
+            return "lightblue";
+          case "Foundation":
+            return "yellow";
+          case "Identified":
+            return "green";
+          case "NodeProvider":
+            return "darkred";
+          case "Spammer":
+            return "salmon";
+          case "Sns":
+            return "purple";
+          case "Suspect":
+            return "orange";
+          default:
+            return "gray";
         }
       })
       .attr("stroke-width", 1)
