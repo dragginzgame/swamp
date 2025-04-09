@@ -35,8 +35,6 @@ export interface AccountData {
     mainAccounts?: string[];
     defiTxs?: Transaction[];
     extra_info?: any;
-    
-   
   }
   
   export interface GraphLink extends SimulationLinkDatum<GraphNode> {
@@ -64,3 +62,8 @@ export interface Node extends SimulationNodeDatum {
 export interface Link extends SimulationLinkDatum<Node> {
   direction: Direction;
 }
+
+export interface GraphData {
+  nodes: GraphNode[];
+  links: GraphLink[]; 
+};

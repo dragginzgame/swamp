@@ -11,8 +11,7 @@ import {
 } from "d3-force";
 import { D3DragEvent, drag } from "d3-drag";
 import { zoom, zoomIdentity } from "d3-zoom";
-import { AccountData, GraphNode } from "./types"; 
-import { buildGraph } from "./graphData";
+import { GraphData, GraphNode } from "./types"; 
 import { ColorModeContext } from "./Layout";
 
 // Define a type for links.
@@ -22,7 +21,7 @@ export interface GraphLink {
 }
 
 interface GraphProps {
-  data: AccountData[];
+  data: GraphData;
   width?: number;
   height?: number;
   onNodeClick?: (node: GraphNode) => void;
@@ -68,9 +67,7 @@ const Graph: React.FC<GraphProps> = ({
       .attr("width", width)
       .attr("height", height);
 
-    if (!data || data.length === 0) return;
-    const newData: any = data.filter((d) => d.ty !== "Spammer");
-    const { nodes, links } = buildGraph(newData);
+    const { nodes, links } = data;
     // Create a container group for simulation elements.
     const container = svg.append("g").attr("class", "container");
 

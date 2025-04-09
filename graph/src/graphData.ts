@@ -30,7 +30,6 @@ export function buildGraph(data: AccountData[]): {
   });
 
   const nodeMap = new Map<string, GraphNode>();
-  const links: GraphLink[] = [];
   // --- main nodes except defi ---
   data.forEach(acc => {
     if (acc.ty.toLowerCase() !== 'defi') {
@@ -54,8 +53,10 @@ export function buildGraph(data: AccountData[]): {
       });
     }
   });
+  console.log(nodeMap.has("4dfa8f7797f1bb03223abd9a9bba306d79a755d43a3dd7ec15220cbbc38ce8af"));
+  const links: GraphLink[] = [];
   const hiddenLinksMap = new Map<string, GraphLink[]>();
-  // --- Link creation between known nodes ---
+  // --- main Link creation between known nodes ---
   allMap.forEach((acc: AccountData) => {
     acc.transactions.forEach(tx => {
       if (tx.op_type !== "Transfer") return;
@@ -81,7 +82,7 @@ export function buildGraph(data: AccountData[]): {
         direction
       };
 
-      // ✳️ If either node is defi, store it in the hidden map
+      // If either node is defi, store it in the hidden map
       if (fromTy === "defi" || toTy === "defi") {
         if (fromTy !== "defi" && nodeMap.has(fromMain)) {
           if (!hiddenLinksMap.has(fromMain)) hiddenLinksMap.set(fromMain, []);
@@ -117,6 +118,7 @@ export function buildGraph(data: AccountData[]): {
 // --- Connector Node Detection ---
 // Build a mapping from external account IDs (the connector) to the set of main accounts that used them.
 const connectorNodeMap = new Map<string, Set<string>>();
+
 allMap.forEach((acc: AccountData) => {
   acc.transactions.forEach(tx => {
     if (tx.op_type !== "Transfer") return;
@@ -127,26 +129,59 @@ allMap.forEach((acc: AccountData) => {
     // Skip internal transfers (i.e. same root/main account)
     if (fromMain && toMain && fromMain === toMain) return;
 
-    // Determine if we know the main account for each end of the transaction
+    // Determine if we know the main account for each end of the transaction.
     const fromIsKnown = fromMain && nodeMap.has(fromMain);
     const toIsKnown = toMain && nodeMap.has(toMain);
 
+    // Branch 1: Known fromMain and external connector is tx.to.
     if (fromIsKnown && !toMain) {
-      if (!connectorNodeMap.has(tx.to)) {
-        connectorNodeMap.set(tx.to, new Set());
+      let addConnector = true;
+      // Extra check: if the known main account (fromMain) is flagged as spammer, skip it.
+      if (allMap.has(fromMain)) {
+        const mainAcc = allMap.get(fromMain)!;
+        if (mainAcc.ty.toLowerCase() === "spammer") {
+          addConnector = false;
+        }
       }
-      connectorNodeMap.get(tx.to)!.add(fromMain);
+      // Check the external account at tx.to.
+      if (allMap.has(tx.to)) {
+        const externalAcc = allMap.get(tx.to)!;
+        // If the external account is flagged as spammer and the transaction amount is <= threshold, skip.
+        if (externalAcc.ty.toLowerCase() === "spammer" && tx.amount <= 1000000) {
+          addConnector = false;
+        }
+      }
+      if (addConnector) {
+        if (!connectorNodeMap.has(tx.to)) connectorNodeMap.set(tx.to, new Set());
+        connectorNodeMap.get(tx.to)!.add(fromMain);
+      }
     }
 
+    // Branch 2: Known toMain and external connector is tx.from.
     if (toIsKnown && !fromMain) {
-      if (!connectorNodeMap.has(tx.from)) {
-        connectorNodeMap.set(tx.from, new Set());
+      let addConnector = true;
+      // Extra check: if the known main account (toMain) is flagged as spammer, skip it.
+      if (allMap.has(toMain)) {
+        const mainAcc = allMap.get(toMain)!;
+        if (mainAcc.ty.toLowerCase() === "spammer") {
+          addConnector = false;
+        }
       }
-      connectorNodeMap.get(tx.from)!.add(toMain);
+      // Check the external account at tx.from.
+      if (allMap.has(tx.from)) {
+        const externalAcc = allMap.get(tx.from)!;
+        if (externalAcc.ty.toLowerCase() === "spammer" && tx.amount <= 1000000) {
+          addConnector = false;
+        }
+      }
+      if (addConnector) {
+        if (!connectorNodeMap.has(tx.from)) connectorNodeMap.set(tx.from, new Set());
+        connectorNodeMap.get(tx.from)!.add(toMain);
+      }
     }
   });
 });
-
+// console.log(connectorNodeMap);
 // --- Build Connection Map from Connector Node Map ---
 // This map records direct links between two main accounts along with the external connector(s) that link them.
 const connectionMap = new Map<string, string[]>();
@@ -154,10 +189,13 @@ connectorNodeMap.forEach((mainAccounts, externalId) => {
   // Only consider connectors that connect two or more main accounts.
   if (mainAccounts.size <= 1) return;
 
-  // Optionally, if the external account exists in allMap (e.g. its type) skip it if needed.
+  // At this stage, we already handled spammer filtering per transaction.
+  // (We still filter out defi here.)
   if (allMap.has(externalId)) {
     const acc = allMap.get(externalId)!;
-    if (acc.ty.toLowerCase() === "defi") return;
+    const extType = acc.ty.toLowerCase();
+    if (extType === "defi") return;
+    // Do not filter spammer here because the per-transaction check should have skipped low-value ones.
   }
 
   const mainList = Array.from(mainAccounts);
@@ -178,12 +216,25 @@ connectorNodeMap.forEach((mainAccounts, externalId) => {
 // --- Create Direct Links for Connector Connections ---
 // Iterate over each pair of main accounts (from connectionMap) and create or update a direct link.
 connectionMap.forEach((externalIds, key) => {
+  // Filter out connectors that come from a spammer.
+  const validExternalIds = externalIds.filter(externalId => {
+    if (allMap.has(externalId)) {
+      const acc = allMap.get(externalId)!;
+      // Exclude if the connector account is flagged as spammer.
+      return acc.ty.toLowerCase() !== "spammer";
+    }
+    return true;
+  });
+
+  if (validExternalIds.length === 0) return; // Skip creating a link if no valid connector exists.
+
   const [mainA, mainB] = key.split("-");
 
   // Optionally, skip links based on account types.
   const typeA = allMap.get(mainA)?.ty.toLowerCase();
   const typeB = allMap.get(mainB)?.ty.toLowerCase();
-  if (typeA && typeB && ((typeA === "cex" && typeB === "cex") || (typeA === "foundation" && typeB === "foundation"))) return;
+  if (typeA && typeB && ((typeA === "cex" && typeB === "cex") ||
+      (typeA === "foundation" && typeB === "foundation"))) return;
 
   // If a direct link already exists between mainA and mainB, append the connector details.
   const existing = links.find(l =>
@@ -192,17 +243,17 @@ connectionMap.forEach((externalIds, key) => {
   );
   if (existing) {
     if (existing.connectors) {
-      existing.connectors.push(...externalIds);
+      existing.connectors.push(...validExternalIds);
     } else {
-      existing.connectors = externalIds;
+      existing.connectors = validExternalIds;
     }
   } else {
     // Otherwise, create a new direct link with the connector details attached.
     links.push({
       source: mainA,
       target: mainB,
-      direction: Direction.SEND, // Adjust this based on your domain logic.
-      connectors: externalIds
+      direction: Direction.SEND, // Adjust based on your domain logic.
+      connectors: validExternalIds
     });
   }
 });

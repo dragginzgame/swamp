@@ -1,13 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Graph from "./Graph";
-import { AccountData, GraphNode } from "./types"; // adjust the path as needed
-import { buildGraph } from "./graphData";
+import { AccountData, GraphNode, GraphData } from "./types"; // adjust the path as needed
 import Select from 'react-select'
 
 interface GraphContainerProps {
-  data: AccountData[];
+  data: GraphData;
   width: number;
   height: number;
   onNodeClick: (node: GraphNode) => void;
@@ -23,16 +22,19 @@ export function GraphContainer({
   loading,
 }: GraphContainerProps) {
   const [highlightNodeId, setHighlightNodeId] = useState<string | undefined>(undefined);
+  const [selectData, setSelectData] = useState<any[]>([]);
 
+  useEffect(() => {
+    const selectValues = [...data.nodes].map((node) => {
+      return { value: node.id, label: node.label };
+    });
+    setSelectData(selectValues);
+  }
+  , []);
   const handleSearch = (selectedOption: any) => {
-    // console.log(selectedOption);
-    const matchingEntry = data.find((entry) =>
-      entry.name.toLowerCase().includes(selectedOption.label.toLowerCase())
-    );
-    // console.log(matchingEntry);
-    if (matchingEntry) {
+    if (selectedOption) {
       // Use the account id as the node id.
-      setHighlightNodeId(matchingEntry.account);
+      setHighlightNodeId(selectedOption.value);
     } else {
       setHighlightNodeId(undefined);
     }
@@ -49,14 +51,10 @@ export function GraphContainer({
       </div>
     );
   }
-  // 
-  const { nodes } = buildGraph(data);
-  const selectValues = [...nodes].map((node) => {
-    return { value: node.id, label: node.label };
-  });
+
   return (
     <div className="graph-container">
-      <Select options={selectValues} placeholder="Find node..." onChange={handleSearch} />
+      <Select options={selectData} placeholder="Find node..." onChange={handleSearch} />
       <br />
       <Graph
         data={data}
