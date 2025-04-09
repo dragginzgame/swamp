@@ -116,6 +116,7 @@ pub const FOUNDATION: &[(&str, &[&str])] = &[
 
 pub const IDENTIFIED: &[(&str, &str)] = &[
     ("Alex Lorimer", "33mql-r6bnm-7mzbp-gqvmp-iv6qr-5j3pw-tnwsf-f2az7-zppun-yb4lf-zae"),
+    ("Alice Trading Agent", "wnskr-liaaa-aaaam-aecdq-cai"),
     ("Austin Fatheree", "83a06afc3e0707f633ae839c1e4f756846a13c6bf1d005499a7f50725cf9f8db"),
     ("a16z Confirmed", "cbada211a17812ec0fb21df6f6261c1346435a04fc14e7e22fae9887479ad19a"),
     ("borovan", "ljxsi-5du4w-3se32-vba6v-dd543-rrj3g-nayx2-f7xhd-o4u7a-ycmxw-bae"),
@@ -709,8 +710,10 @@ pub const SPAMMERS: &[&str] = &[
     "4dfa8f7797f1bb03223abd9a9bba306d79a755d43a3dd7ec15220cbbc38ce8af",
     "4eb3a2a48f297a799243f6e07ed0c3184ded013799aa44e4f3526b0521fd33d2",
     // 5
+    "537ff2377a0df52f56efa2a8a7af412d8dd003bfb982b44c805f7958b24c1c14",
     "55fc3053d6d86d07114e8f3eb7048da165625e2c6a223d46e6cd79f7b9160925",
     "58168ded472e0ae8d6ac3c15d1503d36feeccda43d984f05f1a1b53036f6d288",
+    "5d66c00476785a24972462ff6b89702ac29383b3990f7a1033165eb56e5dae56",
     // 6
     "62dd6e99d50973c37e6457546f21d46d235844e658cbfecc5bddfbd911fb93f0",
     "63c2e09c88e9cbe14c7ce21e6ef26b894bad9738c4e44602b280069a8bf44698",
