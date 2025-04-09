@@ -39,7 +39,6 @@ pub const CEXES: &[(&str, &[&str])] = &[
     ),
     ("MEXC", &["9e62737aab36f0baffc1faac9edd92a99279723eb3feb2e916fa99bb7fe54b59"]),
     ("Mystery OTC 1 (DF / a16z)", &["ee5a229b0584939b880ffd446f2f8ae25252706d78298f20efe4a74665206554"]),
-    ("Mystery OTC 1 (Foundation)", &["62dd39780d34f2dc21eb680f99962659a6a0c2ccd9c68ec365962ae0eaf293f0"]),
     (
         "OKX 1",
         &[
@@ -82,6 +81,7 @@ pub const FOUNDATION: &[(&str, &[&str])] = &[
             "f7d23ad118bab9eae59055a98addd2a1738cc281fa1dc7ca4568e8e661e21283",
         ],
     ),
+    ("Grants for Voting Neurons", &["62dd39780d34f2dc21eb680f99962659a6a0c2ccd9c68ec365962ae0eaf293f0"]),
     (
         "Foundation 50m",
         &[
@@ -794,6 +794,7 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     ("715k ICP", &["46305b0d46d5bbf88ccf6a85c92f8f44171c50f1589ad8594ab9e4f183e18f0e"]),
     ("293k ICP", &["55d6c8c9bf841d721785e422130a385f13e71d8b5431c65b8be6d2b3a03d0c28"]),
     ("291k ICP", &["c51cc8d8bad270b4be891db7655b611cda662160d2c40b9977033421916b997a"]),
+    ("241k ICP", &["c13e11c0768ad2ecaefc18a70e0d7bff5c4bc71cc1b5a5885d24bca19e8ecc78"]),
     ("215k ICP", &["341230e7d06704addb4641c2426f1b19d9d05896ab9c1bec508a4dc9fa1e4911"]),
     //
     // Bots
