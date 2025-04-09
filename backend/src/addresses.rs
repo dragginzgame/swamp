@@ -79,9 +79,9 @@ pub const FOUNDATION: &[(&str, &[&str])] = &[
             "d539266d9e7784304ceb7b72a729794004646e4a39a56b51c3e911a698bbdd8d",
             "ddbb8c310d3393fb76109627e72511ba00bfd7f638f62b1e8a2af0b3668c5d2d",
             "f7d23ad118bab9eae59055a98addd2a1738cc281fa1dc7ca4568e8e661e21283",
+            "62dd39780d34f2dc21eb680f99962659a6a0c2ccd9c68ec365962ae0eaf293f0",
         ],
     ),
-    ("Grants for Voting Neurons", &["62dd39780d34f2dc21eb680f99962659a6a0c2ccd9c68ec365962ae0eaf293f0"]),
     (
         "Foundation 50m",
         &[
