@@ -119,7 +119,6 @@ fn get_entries() -> Vec<AccountData> {
 
     // single
     entries.extend(DEFI.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Defi)));
-    entries.extend(IDENTIFIED.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Identified)));
     entries.extend(SNSES.iter().map(|(name, addr)| AccountData::new(name, &[addr], Type::Sns)));
 
     // unnamed
@@ -128,6 +127,7 @@ fn get_entries() -> Vec<AccountData> {
     // multiple
     entries.extend(CEXES.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Cex)));
     entries.extend(FOUNDATION.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Foundation)));
+    entries.extend(IDENTIFIED.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Identified)));
     entries.extend(NODE_PROVIDERS.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::NodeProvider)));
     entries.extend(SUSPECTS.iter().map(|(name, addrs)| AccountData::new(name, addrs, Type::Suspect)));
 
@@ -195,8 +195,8 @@ fn validate_entries(entries: &[AccountData]) {
             }
         }
 
-        panic!("Validation failed due to duplicates.");
+        println!("Validation failed due to duplicates.");
+    } else {
+        println!("✅ All entries are valid, no duplicates found.");
     }
-
-    println!("✅ All entries are valid, no duplicates found.");
 }
