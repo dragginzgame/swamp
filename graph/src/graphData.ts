@@ -20,12 +20,12 @@ export function buildGraph(data: AccountData[]): {
   // Build a map of all accounts including defi cause we need the transactions 
   const allMap = new Map<string, AccountData>();
   const accountToMain = new Map<string, string>();
-
   data.forEach(acc => {
-    allMap.set(acc.account, acc);
-    accountToMain.set(acc.account, acc.account);
+    let accountId = acc.account[0];
+    allMap.set(accountId, acc);
+    accountToMain.set(accountId, accountId);
     acc.extra_accounts.forEach(extra => {
-      accountToMain.set(extra, acc.account);
+      accountToMain.set(extra[0], accountId);
     });
   });
 
@@ -42,25 +42,25 @@ export function buildGraph(data: AccountData[]): {
           tx_count: acc.transactions.length,
           start_date: new Date(newTxs[0].timestamp / 1_000_000).toLocaleString("en-GB"),
           end_date: new Date(newTxs[newTxs.length - 1].timestamp / 1_000_000).toLocaleString("en-GB"),
-          extra_accounts: acc.extra_accounts
+          extra_accounts: [acc.account, ...acc.extra_accounts]
         };
       }
-      nodeMap.set(acc.account, {
-        id: acc.account,
+      let accountId = acc.account[0];
+      nodeMap.set(accountId, {
+        id: accountId,
         label: acc.name,
         group: acc.ty,
         extra_info: extra_info,
       });
     }
   });
-  console.log(nodeMap.has("4dfa8f7797f1bb03223abd9a9bba306d79a755d43a3dd7ec15220cbbc38ce8af"));
   const links: GraphLink[] = [];
   const hiddenLinksMap = new Map<string, GraphLink[]>();
   // --- main Link creation between known nodes ---
   allMap.forEach((acc: AccountData) => {
     acc.transactions.forEach(tx => {
       if (tx.op_type !== "Transfer") return;
-
+      let accountId = acc.account[0];
       const fromMain = accountToMain.get(tx.from);
       const toMain = accountToMain.get(tx.to);
 
@@ -74,7 +74,7 @@ export function buildGraph(data: AccountData[]): {
       const fromTy = fromNode.ty.toLowerCase();
       const toTy = toNode.ty.toLowerCase();
 
-      const direction: Direction = (fromMain === acc.account) ? Direction.SEND : Direction.RECEIVE;
+      const direction: Direction = (fromMain === accountId) ? Direction.SEND : Direction.RECEIVE;
 
       const link: GraphLink = {
         source: fromMain,

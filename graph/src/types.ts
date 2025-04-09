@@ -4,9 +4,9 @@ import { SimulationNodeDatum, SimulationLinkDatum } from "d3-force";
 export interface AccountData {
     name: string;
     principal?: string;
-    account: string;
+    account: [string, number];
     ty: string;
-    extra_accounts: string[];
+    extra_accounts: [string, number][];
     transactions: Transaction[];
   }
   

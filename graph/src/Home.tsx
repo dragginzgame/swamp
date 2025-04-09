@@ -79,11 +79,10 @@ export default function Home() {
     const title: string = `${node.label} ${node.group}`;
     const message: string[] = [];
     message.push("Accounts:");
-    message.push(node.id);
     console.log(node.extra_info);
     if (node.extra_info && node.extra_info.extra_accounts && node.extra_info.extra_accounts.length > 0) {
       for (let acc of node.extra_info.extra_accounts) {
-        message.push(acc);
+        message.push(`${acc[0]} ---- (${acc[1] / 100_000_000 })`);
       }
     }
     if (node.mainAccounts && node.mainAccounts.length > 0) {

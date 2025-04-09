@@ -204,9 +204,9 @@ pub struct SimplifiedTransfer {
 pub struct AccountTransactionsJson {
     pub name: String,
     pub principal: Option<String>,
-    pub account: Option<String>,
+    pub account: Option<(String, u64)>,
     pub ty: String,
-    extra_accounts: Vec<String>,
+    extra_accounts: Vec<(String, u64)>,
     pub transactions: Vec<SimplifiedTransfer>,
     pub oldest_tx_id: Option<u64>,
 }
@@ -326,8 +326,9 @@ pub async fn fetch_transactions(
     identifiers.dedup();
 
     // Use the first one as "main", others go to extra_accounts
-    let main_account = identifiers.first().cloned();
     extra_accounts.extend(identifiers.iter().skip(1).cloned());
+
+    let mut account_balances: Vec<(String, u64)> = Vec::new();
 
     for account_identifier in &identifiers {
         if !is_valid_account_id(account_identifier)? {
@@ -353,6 +354,7 @@ pub async fn fetch_transactions(
                 if oldest_tx_id.is_none() || resp.oldest_tx_id < oldest_tx_id {
                     oldest_tx_id = resp.oldest_tx_id;
                 }
+                account_balances.push((account_identifier.clone(), resp.balance));
                 all_transactions.extend(resp.transactions);
             }
             GetAccountIdentifierTransactionsResult::Err(err) => {
@@ -361,6 +363,14 @@ pub async fn fetch_transactions(
             }
         }
     }
+
+    // Sort the account_balances by the account identifier
+    account_balances.sort_by(|a, b| a.0.cmp(&b.0));
+
+    // Use the first one as "main", others go to extra_accounts
+    let main_account = account_balances.first().cloned();
+    let extra_accounts =
+        if account_balances.len() > 1 { account_balances.iter().skip(1).cloned().collect() } else { Vec::new() };
 
     let simplified_transactions: Vec<SimplifiedTransfer> = all_transactions
         .into_iter()
