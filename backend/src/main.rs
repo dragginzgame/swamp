@@ -141,18 +141,22 @@ fn validate_entries(entries: &[AccountData]) {
     // check for dupes
     let mut seen_accounts = HashSet::<String>::new();
     let mut seen_principals = HashSet::<Principal>::new();
+    let mut duplicate_accounts = HashSet::<String>::new();
+    let mut duplicate_principals = HashSet::<Principal>::new();
+
     print!("Validating {} addresses...", entries.len());
 
+    // accounts
     for entry in entries {
-        for account in entry.accounts.clone() {
+        for account in &entry.accounts {
             if !seen_accounts.insert(account.clone()) {
-                panic!("duplicate account found: {account}");
+                duplicate_accounts.insert(account.clone());
             }
         }
 
-        for principal in entry.principals.clone() {
-            if !seen_principals.insert(principal) {
-                panic!("duplicate principal found: {principal}");
+        for principal in &entry.principals {
+            if !seen_principals.insert(*principal) {
+                duplicate_principals.insert(*principal);
             }
         }
     }
@@ -169,5 +173,30 @@ fn validate_entries(entries: &[AccountData]) {
         }
     }
 
-    println!(" ok");
+    // check
+    if !duplicate_accounts.is_empty() || !duplicate_principals.is_empty() {
+        println!("❌ Duplicates found!");
+
+        if !duplicate_accounts.is_empty() {
+            let mut sorted_accounts: Vec<_> = duplicate_accounts.into_iter().collect();
+            sorted_accounts.sort();
+            println!("Duplicate accounts:");
+            for acc in sorted_accounts {
+                println!("  - {acc}");
+            }
+        }
+
+        if !duplicate_principals.is_empty() {
+            let mut sorted_principals: Vec<_> = duplicate_principals.into_iter().collect();
+            sorted_principals.sort_by_key(|p| p.to_text()); // Sorting by textual representation
+            println!("Duplicate principals:");
+            for p in sorted_principals {
+                println!("  - {}", p);
+            }
+        }
+
+        panic!("Validation failed due to duplicates.");
+    }
+
+    println!("✅ All entries are valid, no duplicates found.");
 }
