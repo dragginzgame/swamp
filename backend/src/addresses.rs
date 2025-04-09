@@ -50,7 +50,7 @@ pub const CEXES: &[(&str, &[&str])] = &[
 
 pub const FOUNDATION: &[(&str, &[&str])] = &[
     (
-        "Foundation Neurons",
+        "Foundation",
         &[
             "1f5ef4de27f2880dac6409b431ba866170be8b04e87afe95c841ca163d9c3689",
             "1a481b7aa86fa89029117f0487479f52fe3ee27ad63d48bac78fa60b3ebf9237",
@@ -65,6 +65,7 @@ pub const FOUNDATION: &[(&str, &[&str])] = &[
             "581ebcfa72dbed72cb0d18240d30879ac915df69dba3d1a8cfbb5508bb973df1",
             "600bc2e6fa9dcf3543acc22bd8181ca7e11ef3f0a9ce662480fe61524c9bb8c1",
             "61529f442b6fc6a2db07f4dc446b255e6702aa95ed8bb2fa5c38cb04358eea65",
+            "62dd39780d34f2dc21eb680f99962659a6a0c2ccd9c68ec365962ae0eaf293f0",
             "65675acf9e0752bbc58893b284e2c7558db61bfdbefe63c055bb69305f0da17e",
             "6a6fe5e9936747faadb472f3d3790830c372eb4ab7039d207059bf34eacf4de9",
             "78a6c47cc1e153e1b63eafcd471d5e6de1365592e73d0c41931461fd97271d03",
@@ -79,12 +80,6 @@ pub const FOUNDATION: &[(&str, &[&str])] = &[
             "d539266d9e7784304ceb7b72a729794004646e4a39a56b51c3e911a698bbdd8d",
             "ddbb8c310d3393fb76109627e72511ba00bfd7f638f62b1e8a2af0b3668c5d2d",
             "f7d23ad118bab9eae59055a98addd2a1738cc281fa1dc7ca4568e8e661e21283",
-            "62dd39780d34f2dc21eb680f99962659a6a0c2ccd9c68ec365962ae0eaf293f0",
-        ],
-    ),
-    (
-        "Foundation 50m",
-        &[
             "083cf3b96513747c107da53f77dacc3151d1fb4af7f85d2f264ac05e2cb509fc",
             "0a92b2a309af032de769d22b4855fdd94b03510a9267d32849ad9fbf9050fb1d",
             "0d15481fce8809dac73bafb00e6c8a7abf6e243b499fa2b188f6ebc19f8650fc",
@@ -902,9 +897,15 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
         ],
     ),
     // Txs
-    ("DF 2024-12-13 105k Wd", &["da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db"]),
     ("?? 2024-12-13 35k Dep", &["e109d335b176e52e85a5b31e026d48f9c3d17d9693c011e633804678e5f8a062"]),
     ("?? 2024-12-19 110k Dep", &["2cab624c4d60644b1f3037236b8695e9f73bf8f415b16a4f8d89a7731a5bfa4d"]),
+    (
+        "DF Other",
+        &[
+            "40913fc5b8d3206743181b57bc7b3435886269110e8af135a8cc38a4e36b5f36",
+            "da066d08993dd392358f59c8c34247f81eb17e5d3df6a087e4abef1e940b17db",
+        ],
+    ),
     (
         "DF Wash",
         &[
@@ -966,7 +967,6 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
             "3cb64ddb9cfb19db9607370b9b7ee49a68fd458106035786b9f7a79a7f8fbbe4",
             "3decd559162a51e9e9699a46373fffb17c2cf5bbf47b408206ca16571e3f58a6",
             "400f11ee8224067fa31f98ae41048abed34e5f58062808096e8dff444932b432",
-            "40913fc5b8d3206743181b57bc7b3435886269110e8af135a8cc38a4e36b5f36",
             "41c64c7c1093099dcc1046477a0bd5fa5eaaf10467f259ec8a7f15f14a820f97",
             "4341488e234d02e33913dd469b596c569131762c250d2da0f13a366f9b63319e",
             "458d9284e1e2bee27c4d04d2f8a64fc4551371b315692d94f934efa647b5ae8a",
