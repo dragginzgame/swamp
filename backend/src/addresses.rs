@@ -843,6 +843,7 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     ("BIL Hacker", &["3axar-twhdo-biizl-yegt2-fatxq-go2ay-ib5ki-y6cmq-ziiav-vcn5x-mae"]),
     ("BIL Weird", &["irb66-fu7u3-yqmka-yqzqw-s4hhi-xhnr4-565su-zxlap-nboyf-ojndk-iae"]),
     ("ufwij", &["ufwij-jggzv-owfkb-cs26m-p7j3y-awpqg-3oa33-x4ciu-vadlo-2jb7f-gae"]),
+    ("TRAX Proposal 20k ICP", &["auxn2-uuuev-gyyci-vapyq-v54jy-yekzz-inxco-dyagv-55vdu-kpfsm-yqe"]),
     (
         "Cosmicrafts Controller",
         &[
