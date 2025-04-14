@@ -2,8 +2,8 @@ import { JSX, useEffect, useState } from "react";
 import axios from "axios";
 import { AwsClient } from 'aws4fetch'
 
-const apiKey = "";
-const apiSecret = "";
+const apiKey = process.env.REACT_APP_A_KEY;
+const apiSecret = process.env.REACT_APP_A_SECRET;
 // Define TypeScript interfaces for our data structures
 interface Tokens {
   e8s: number;
