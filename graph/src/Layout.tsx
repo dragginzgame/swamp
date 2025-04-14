@@ -164,6 +164,6 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
         </nav>
         {children}
       </>
-      // </ColorModeContext.Provider>
+    </ColorModeContext.Provider>
   );
 }

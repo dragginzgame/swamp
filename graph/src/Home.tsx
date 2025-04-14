@@ -30,6 +30,7 @@ export default function Home() {
         const mergedData: AccountData[] = results.flat();
         const graphData = buildGraph(mergedData);
         setData(graphData);
+        // await new Promise(resolve => setTimeout(resolve, 5000));
       } catch (err) {
         console.error("Failed to load JSON:", err);
       } finally {
