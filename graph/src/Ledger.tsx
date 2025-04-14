@@ -75,6 +75,9 @@ interface SearchState {
 const host = "https://search-ic-ledger-ahnchhnlwebccd3svwpa3xx7xe.aos.eu-west-2.on.aws";
 const region = "eu-west-2";
 const index = 'icp_ledger';
+if (!apiKey || !apiSecret) {
+  throw new Error("AWS credentials are not set in environment variables");
+};
 const aws = new AwsClient({ accessKeyId: apiKey, secretAccessKey: apiSecret, region: region, service: 'es' });
 const searchUrl = `${host}/${index}/_search?pretty`;
 

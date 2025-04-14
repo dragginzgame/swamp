@@ -8,7 +8,6 @@ import { ClientLayout } from './Layout';
 import Home from './Home';
 import { ToastProvider } from './utils/Toast';
 import { Ledger } from './Ledger';
-
 function App() {
   return (
     <ToastProvider>
