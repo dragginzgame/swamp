@@ -128,6 +128,7 @@ pub const IDENTIFIED: &[(&str, &[&str])] = &[
     ("Cartographer", &["0d6960e0d0c92bdd7dfdd7ca6c5472f1506344c49d8e8402513aa94fa5bd2bd0"]),
     ("CodeGov", &["5awin-45z56-xtcpr-6xlsj-j25mu-q5de7-2rzdj-5675c-mrikh-m5vpg-aqe"]),
     ("David the Gnome", &["aiuxi-qgbbo-2bls4-7ac4x-suec5-bo6mm-zq6yh-asr25-iug6d-s7csv-jae"]),
+    ("David Fisher WTN", &["cld52-vm6st-5ulwe-yperp-iwvft-gqt7a-jrbpm-pkdcl-yszk3-zyxvb-wae"]),
     ("Gavin H", &["7cfaeaa0e14ce862636f052ff307511032e030a3028ead7614f7fc0905c1de41"]),
     (
         "Gian",
