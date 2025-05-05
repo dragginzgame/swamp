@@ -846,6 +846,7 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     //
     ("BIL Hacker", &["3axar-twhdo-biizl-yegt2-fatxq-go2ay-ib5ki-y6cmq-ziiav-vcn5x-mae"]),
     ("BIL Weird", &["irb66-fu7u3-yqmka-yqzqw-s4hhi-xhnr4-565su-zxlap-nboyf-ojndk-iae"]),
+    ("Boom DAO ICPSwap Dump", &["bvvmb-d6ucr-3qaml-wc7yl-f7vb5-uq3ik-jqibq-4bjq4-vfq7n-lec4r-sae"]),
     ("ufwij", &["ufwij-jggzv-owfkb-cs26m-p7j3y-awpqg-3oa33-x4ciu-vadlo-2jb7f-gae"]),
     ("TRAX Proposal 20k ICP", &["auxn2-uuuev-gyyci-vapyq-v54jy-yekzz-inxco-dyagv-55vdu-kpfsm-yqe"]),
     (
@@ -1139,10 +1140,10 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     ("WTN Owner 2", &["ll6pj-3wsrz-glcqo-bhjl7-s7wsj-eaykn-sllr5-4klcj-wxgbe-jm2ei-zqe"]),
     ("WTN Owner 3", &["zvcax-7pun5-oy64t-aynez-yo2jp-ftieg-otq24-ohoxk-6nlth-64fxt-tae"]),
     ("WTN Owner 4", &["ifdcz-ditqo-tojui-ncj6w-tukjj-4ujn5-j5ibk-ksch7-abkr5-pd22f-fae"]),
-    ("WTN Owner 6", &["k57i6-rqxsp-3w5kd-oictq-iokt4-uqzvz-yophv-rkfkk-bnqcd-v34ie-yae"]),
-    ("WTN Owner 7", &["ulvvb-xozrw-cco4f-ucqug-wuiwd-iyfu5-36fgm-fnv4x-jw3j5-ey6c4-mqe"]),
-    ("WTN Owner 8", &["ujszi-xic4g-vwnse-qpaqj-ybjvs-bfosw-qnzrt-atp4z-sovvc-4i4ak-wqe"]),
-    ("WTN Owner 9", &["ahmgc-7sit2-bntmx-7w3aj-nmmsm-su7xy-zd5ni-tjlic-voqen-zpq6k-sqe"]),
+    ("WTN Owner 5", &["k57i6-rqxsp-3w5kd-oictq-iokt4-uqzvz-yophv-rkfkk-bnqcd-v34ie-yae"]),
+    ("WTN Owner 6", &["ulvvb-xozrw-cco4f-ucqug-wuiwd-iyfu5-36fgm-fnv4x-jw3j5-ey6c4-mqe"]),
+    ("WTN Owner 7", &["ujszi-xic4g-vwnse-qpaqj-ybjvs-bfosw-qnzrt-atp4z-sovvc-4i4ak-wqe"]),
+    ("WTN Owner 8", &["ahmgc-7sit2-bntmx-7w3aj-nmmsm-su7xy-zd5ni-tjlic-voqen-zpq6k-sqe"]),
     ("WTN Early Contributor 1", &["gsqeg-utfkx-osmyu-vphdp-3snmy-grdl4-7g7wm-hatz3-zs23g-ijrqf-2ae"]),
     ("WTN Early Contributor 2", &["3eifv-szkqr-6n6gw-fktqo-f7wop-akker-ym6k4-qxiej-k6i2d-3mkwu-2qe"]),
     ("WTN Early Contributor 3", &["zig7t-6lekg-6am6v-r3xaj-wb7gg-4d7fm-w7int-ww6sq-lcimu-wouly-rae"]),
