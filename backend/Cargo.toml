@@ -17,7 +17,7 @@ crc32fast = "1.4.2"
 serde = { version = "1.0.171", features = ["derive"] }
 serde_json = "1.0.103"
 thiserror = "2.0.12"
-tokio = { version = "1.44.1", features = ["full"] }
+tokio = { version = "1.44.2", features = ["full"] }
 toml = "0.7.6"
 icp-ledger = { git = "https://github.com/dfinity/ic/", rev = "9d4e0c4c9b2eda91e93bbbc010a8bfd6071a252f" }
 reqwest = { version = "0.12.14", features = ["json"] }
