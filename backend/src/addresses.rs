@@ -137,6 +137,7 @@ pub const IDENTIFIED: &[(&str, &[&str])] = &[
             "9c280844cb592d9c47407be0bc58e3408f7860ad8b481f88b8933099987fe8c7",
         ],
     ),
+    ("ICP Maximalist", &["5ly3n-atgcf-chdwq-g4vqw-pa6su-bepwn-qakrn-6v2ad-ldnmn-stsd6-5qe"]), // dscvr
     ("Isaac Valadez", &["ylw3l-r67m3-p3llx-z4ffv-ljnpq-go37c-tsifk-5eewu-jslcg-6c4in-oae"]),
     ("Jerry Banfield", &["n4235-f5fjz-yeaax-xfbrm-4eoo2-6moqq-yzoya-nnefz-4ky7n-5ajgb-dqe"]),
     ("Johannes Kriel", &["2rjjb-gy24i-ghulj-zfsn6-cf6ju-6rrkc-osdlt-uxuhc-ibhmb-wvh2v-yae"]),
@@ -148,6 +149,13 @@ pub const IDENTIFIED: &[(&str, &[&str])] = &[
     ("Seb Thuiller", &["7xwba-dqufj-jjl52-ql4vc-m4xvu-6a6y5-ryyfp-nhwxz-lu6gb-inchy-pae"]),
     ("Toniq Royalty", &["c7e461041c0c5800a56b64bb7cefc247abc0bbbb99bd46ff71c64e92d9f5c2f9"]),
     ("Utkarsh Goyal", &["wwyo5-vrahh-jwa74-3m6kj-jqbia-jbebm-7vtyd-uvqem-wk3zw-djpci-vqe"]),
+    (
+        "Wenzel Bartlett",
+        &[
+            "r2czx-stawx-m2w7d-wchra-jie62-7mjyb-lrh7u-kukhp-vaqqz-2itxe-7ae",
+            "7wvvr-cfstg-bey3u-ofua6-boqip-lumkm-uiiww-nkeuo-u34xj-cizcw-hae", // dscvr
+        ],
+    ),
 ];
 
 // Defi won't show up as a node, it's just an association
