@@ -185,6 +185,7 @@ pub const NODE_PROVIDERS: &[(&str, &[&str])] = &[
     ),
     ("87m Neuron, LLC", &["eipr5-izbom-neyqh-s3ec2-52eww-cyfpg-qfomg-3dpwj-4pffh-34xcu-7qe"]),
     ("ACCUSET SOLUTIONS", &["cp5ib-twnmx-h4dvd-isef2-tu44u-kb2ka-fise5-m4hta-hnxoq-k45mm-hqe"]),
+    ("Agentic", &["w3wfj-mv4mw-4nx2b-dp4sy-smc5e-2alcl-5fs34-smlgf-bqdy7-lwh6r-nqe"]),
     ("Aitubi AG", &["znw2p-4cx6u-ocqls-277iu-2lkir-xjy7g-4s3sj-sjy6j-mtlay-rnnra-yqe"]),
     ("Aksinia Stavskaya", &["wlxga-ebupj-sj2nf-g3sii-75i6b-oh64s-qmq7u-gmros-vi2if-3ktdv-cqe"]),
     (
