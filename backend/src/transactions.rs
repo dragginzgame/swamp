@@ -195,9 +195,9 @@ pub struct SimplifiedTransfer {
     pub op_type: String,
     pub from: String,
     pub to: String,
-    id: u64,
-    timestamp: u64,
-    amount: u64,
+    pub id: u64,
+    pub timestamp: u64,
+    pub amount: u64,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
