@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { ToastMessage, useToast } from "./utils/Toast";
 
 interface ColorModeContextType {
@@ -62,11 +62,11 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
         <ToastMessage toastData={toastData} />
         <nav className="navbar navbar-expand-md bg-dark sticky-top border-bottom" data-bs-theme="dark">
           <div className="container">
-            <a className="navbar-brand d-md-none" href="#">
+            <a className="navbar-brand d-md-none" href="/">
               <svg className="bi" width="24" height="24">
                 <use xlinkHref="#aperture" />
               </svg>
-              Aperture
+              Swamp
             </a>
             <button
               className="navbar-toggler"
@@ -88,10 +88,21 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
               <div className="offcanvas-body">
                 <ul className="navbar-nav flex-grow-1 justify-content-between">
                   <li className="nav-item">
-                    <a className="nav-link" href="#">
+                    <a className="nav-link" href="/">
                       <svg className="bi" width="24" height="24">
                         <use xlinkHref="#aperture" />
                       </svg>
+                      Graph
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/ledger">
+                      Ledger Search
+                    </a>
+                  </li>
+                  <li className="nav-item">
+                    <a className="nav-link" href="/balances">
+                      Daily Balances
                     </a>
                   </li>
                   <li className="nav-item">

@@ -1,6 +1,7 @@
 use crate::{
     AccountData, Type,
-    addresses::{CEXES, SUSPECTS},
+    addresses::CEXES,
+    pattern_addresses::get_pattern_address_list,
     pattern_detector::{PatternDetector, Transaction},
     transactions::{fetch_with_retry, AccountTransactionsJson},
 };
@@ -55,13 +56,9 @@ impl NetworkTracer {
         }
         
         let mut seed_addresses = HashSet::new();
-        // Add pattern seed addresses
-        for (name, addresses) in SUSPECTS {
-            if name.starts_with("Pattern Seed") || *name == "David the Gnome" || *name == "David Fisher WTN" {
-                for addr in *addresses {
-                    seed_addresses.insert(addr.to_string());
-                }
-            }
+        // Add pattern seed addresses from dedicated module
+        for addr in get_pattern_address_list() {
+            seed_addresses.insert(addr);
         }
         
         Self {

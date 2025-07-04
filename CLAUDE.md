@@ -28,6 +28,18 @@ cargo run analyze_account <account_hex>
 # Trace the entire money flow network from seed addresses
 cargo run trace_network
 
+# Calculate exact total ICP controlled by suspect (private analysis)
+cargo run trace_funds
+
+# Analyze account using local ledger files (JSONL format)
+cargo run local_ledger <account_hex> [ledger_directory]
+
+# Import JSONL ledger files into SQLite database
+cargo run import_db [ledger_directory] [db_path]
+
+# Query account from SQLite database (fast indexed queries)
+cargo run query_db <account_hex> [db_path]
+
 # Run tests
 cargo test
 

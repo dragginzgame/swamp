@@ -190,7 +190,7 @@ pub struct ProviderRewardInfo {
     last_mint_timestamp: Option<u64>,
 }
 
-#[derive(Serialize, Debug, Deserialize)]
+#[derive(Serialize, Debug, Deserialize, Clone)]
 pub struct SimplifiedTransfer {
     pub op_type: String,
     pub from: String,

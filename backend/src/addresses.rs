@@ -856,27 +856,6 @@ pub const SUSPECTS: &[(&str, &[&str])] = &[
     ("BIL Hacker", &["3axar-twhdo-biizl-yegt2-fatxq-go2ay-ib5ki-y6cmq-ziiav-vcn5x-mae"]),
     ("BIL Weird", &["irb66-fu7u3-yqmka-yqzqw-s4hhi-xhnr4-565su-zxlap-nboyf-ojndk-iae"]),
     ("Boom DAO ICPSwap Dump", &["bvvmb-d6ucr-3qaml-wc7yl-f7vb5-uq3ik-jqibq-4bjq4-vfq7n-lec4r-sae"]),
-    //
-    // Pattern Seeds - 6 week cycle accounts
-    //
-    ("Pattern Seed 1", &["14e7d1ac542c0bce0be9953ce0ee8e99ea6d4cb3756db2ad1efdaeabc6bd24f5"]),
-    ("Pattern Seed 2", &["2cab624c4d60644b1f3037236b8695e9f73bf8f415b16a4f8d89a7731a5bfa4d"]),
-    ("Pattern Seed 3", &["2f8a5271efc9944a8a6d0c4b8e8cec485847c25001654976d557db99df54dde4"]),
-    ("Pattern Seed 4", &["3fd4059c5fd21bdb34fd035698217cbfa9311b2cc08a923edf8f12d3d31e6b2e"]),
-    ("Pattern Seed 5", &["55d6c8c9bf841d721785e422130a385f13e71d8b5431c65b8be6d2b3a03d0c28"]),
-    ("Pattern Seed 6", &["63700eb2c134447c7e51e845cff8728428b050e5f3536c822c0a41b18358c1d2"]),
-    ("Pattern Seed 7", &["65526ecef3fdcd765ec52cc5e763794f5cc00d844880be193f2ac40e00cab32f"]),
-    ("Pattern Seed 8", &["953727e771fadf007ad34193f2a82017da47cce7c84671dc04bcaa8c97ec59b3"]),
-    ("Pattern Seed 9", &["ae186a77aa85bd9a9d716453afa8b0b2434dbfa046cedb04283d2494b10f6152"]),
-    ("Pattern Seed 10", &["b6667dd90a9201bf5d2dfafaee8c4e650b5cdfca9e1d3527fcff71d97ccb2bcb"]),
-    ("Pattern Seed 11", &["c51cc8d8bad270b4be891db7655b611cda662160d2c40b9977033421916b997a"]),
-    ("Pattern Seed 12", &["e170cda10b59eb400d4d1031887d4fa2ac98c92cc48695246132a9b5e2954ae5"]),
-    ("Pattern Seed 13", &["e109d335b176e52e85a5b31e026d48f9c3d17d9693c011e633804678e5f8a062"]),
-    ("Pattern Seed 14", &["40913fc5b8d3206743181b57bc7b3435886269110e8af135a8cc38a4e36b5f36"]),
-    ("Pattern Seed 15", &["4104b933310e2f4d0a9eab7adb29f1ea4d5bb4afdf2d9e052c90149c1f2dc35e"]),
-    ("Pattern Seed 16", &["b68586ed200c1a55d2ad9544896e5c7e9586e2bfa0f85c39eb3538bdc46ecc44"]),
-    ("David the Gnome", &["aiuxi-qgbbo-2bls4-7ac4x-suec5-bo6mm-zq6yh-asr25-iug6d-s7csv-jae"]),
-    ("David Fisher WTN", &["cld52-vm6st-5ulwe-yperp-iwvft-gqt7a-jrbpm-pkdcl-yszk3-zyxvb-wae"]),
     ("ufwij", &["ufwij-jggzv-owfkb-cs26m-p7j3y-awpqg-3oa33-x4ciu-vadlo-2jb7f-gae"]),
     ("TRAX Proposal 20k ICP", &["auxn2-uuuev-gyyci-vapyq-v54jy-yekzz-inxco-dyagv-55vdu-kpfsm-yqe"]),
     (

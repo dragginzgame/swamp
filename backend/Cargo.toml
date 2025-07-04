@@ -4,8 +4,9 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-anyhow = "1.0.97"
+anyhow = { version = "1.0.97", features = ["std"] }
 candid = "0.10.13"
+chrono = "0.4.31"
 hex = "0.4.3"
 ic-agent = "0.40.0"
 ring = "0.17.14"
@@ -21,3 +22,4 @@ tokio = { version = "1.44.1", features = ["full"] }
 toml = "0.7.6"
 icp-ledger = { git = "https://github.com/dfinity/ic/", rev = "9d4e0c4c9b2eda91e93bbbc010a8bfd6071a252f" }
 reqwest = { version = "0.12.14", features = ["json"] }
+rusqlite = { version = "0.32.1", features = ["bundled"] }
