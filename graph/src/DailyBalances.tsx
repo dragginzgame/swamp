@@ -53,6 +53,7 @@ export const DailyBalances: React.FC = () => {
 
     // Clear previous charts
     select('#balance-charts').selectAll('*').remove();
+    select('#combined-chart').selectAll('*').remove();
 
     const margin = { top: 20, right: 20, bottom: 60, left: 80 };
     const width = 800 - margin.left - margin.right;
@@ -147,6 +148,111 @@ export const DailyBalances: React.FC = () => {
         .attr('fill', '#007bff');
     });
 
+    // Create combined chart
+    if (selectedAddresses.length > 1) {
+      const combinedContainer = select('#combined-chart')
+        .append('div')
+        .attr('class', 'mb-4')
+        .style('border', '1px solid #dee2e6')
+        .style('border-radius', '0.375rem')
+        .style('padding', '1rem');
+      
+      combinedContainer
+        .append('h5')
+        .text('Combined View - All Selected Addresses');
+      
+      const combinedSvg = combinedContainer
+        .append('svg')
+        .attr('width', width + margin.left + margin.right + 150) // Extra space for legend
+        .attr('height', height + margin.top + margin.bottom);
+
+      const combinedG = combinedSvg.append('g')
+        .attr('transform', `translate(${margin.left},${margin.top})`);
+
+      // Get all data points for selected addresses
+      const allData: Array<{address: string, day: number, balance: number}> = [];
+      selectedAddresses.forEach(address => {
+        if (data[address]) {
+          data[address].forEach(([day, balance]) => {
+            allData.push({ address, day, balance });
+          });
+        }
+      });
+
+      // Create scales for combined chart
+      const combinedXScale = scaleLinear()
+        .domain(extent(allData, (d: {address: string, day: number, balance: number}) => d.day) as [number, number])
+        .range([0, width]);
+
+      const combinedYScale = scaleLinear()
+        .domain([0, max(allData, (d: {address: string, day: number, balance: number}) => d.balance) as number])
+        .range([height, 0]);
+
+      const colorScale = scaleOrdinal(schemeCategory10);
+
+      // Add axes
+      combinedG.append('g')
+        .attr('transform', `translate(0,${height})`)
+        .call(axisBottom(combinedXScale).tickFormat((d: any) => {
+          const date = new Date((d as number) * 24 * 60 * 60 * 1000);
+          return timeFormat('%m/%d')(date);
+        }));
+
+      combinedG.append('g')
+        .call(axisLeft(combinedYScale).tickFormat((d: any) => `${(d as number / 100_000_000).toFixed(1)}`));
+
+      // Add axis labels
+      combinedG.append('text')
+        .attr('transform', 'rotate(-90)')
+        .attr('y', 0 - margin.left)
+        .attr('x', 0 - (height / 2))
+        .attr('dy', '1em')
+        .style('text-anchor', 'middle')
+        .style('font-size', '12px')
+        .text('Balance (ICP)');
+
+      combinedG.append('text')
+        .attr('transform', `translate(${width / 2}, ${height + 40})`)
+        .style('text-anchor', 'middle')
+        .style('font-size', '12px')
+        .text('Date');
+
+      // Create line generator for combined chart
+      const combinedLineGenerator = line<[number, number]>()
+        .x((d: [number, number]) => combinedXScale(d[0]))
+        .y((d: [number, number]) => combinedYScale(d[1]))
+        .curve(curveMonotoneX);
+
+      // Draw lines for each selected address
+      selectedAddresses.forEach((address, index) => {
+        if (data[address]) {
+          const color = colorScale(address);
+          
+          combinedG.append('path')
+            .datum(data[address])
+            .attr('fill', 'none')
+            .attr('stroke', color)
+            .attr('stroke-width', 2)
+            .attr('d', combinedLineGenerator)
+            .style('opacity', 0.8);
+
+          // Add legend
+          combinedG.append('circle')
+            .attr('cx', width + 20)
+            .attr('cy', index * 20 + 10)
+            .attr('r', 4)
+            .attr('fill', color);
+
+          combinedG.append('text')
+            .attr('x', width + 30)
+            .attr('y', index * 20 + 15)
+            .attr('fill', color)
+            .style('font-size', '11px')
+            .text(`${address.substring(0, 12)}...`);
+        }
+      });
+    }
+
   }, [data, selectedAddresses]);
 
   const filteredAddresses = data ? Object.keys(data).filter(address => 
@@ -188,6 +294,22 @@ export const DailyBalances: React.FC = () => {
       <div className="row">
         <div className="col-md-12">
           <div className="card">
+            <div className="card-header">
+              <h5>Combined View</h5>
+            </div>
+            <div className="card-body">
+              <div id="combined-chart"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="row mt-4">
+        <div className="col-md-12">
+          <div className="card">
+            <div className="card-header">
+              <h5>Individual Address Charts</h5>
+            </div>
             <div className="card-body">
               <div id="balance-charts"></div>
             </div>
